@@ -150,20 +150,68 @@
             line-height: 11px;
         }
 
+        body div.ant {
+            display: none;
+        }
+
+        @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio : 2) {
+            header h2 a {font-size: 16px;
+                line-height: 18px;
+            }
+
+            #section-carousel .item header h2 {
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 18px;
+                margin: 0;
+            }
+
+            #section-carousel {
+            /* height: 456px; */
+                height:auto; 
+               overflow: hidden;
+            }
+
+            #section-carousel .item {
+                height: auto;
+            }
+        }
 
         @media only screen and (min-device-width : 320px) and (max-device-width : 480px), only screen and (min-device-width : 320px) and (max-device-width : 480px) and (-webkit-min-device-pixel-ratio : 2) {
+            
             body div.ant.ant-summary {
                 float: none;
                 /*
         margin:0 0 10px 0;
         */
             }
+
+            header h2 a {font-size: 16px;
+                line-height: 18px;
+            }
+
+            #section-carousel .item header h2 {
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 18px;
+                margin: 0;
+            }
+
+            #section-carousel {
+            /* height: 456px; */
+            height:auto; 
+               overflow: hidden;
+            }
+
+            #section-carousel .item {
+                height: auto;
+            }
         }
     </style>
 </head>
-<body>
+<body class="no-ant">
     <header class="container no-ant">
-        <div class="row header-inner-container">
+        <div class="row header-inner-container no-ant">
             <div class="col-xs-12 header-container">
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid navbar-container">
@@ -223,17 +271,17 @@
             </div>
         </div>
     </header>
-    <div class="container frontpage article no-ant">
+    <div class="container frontpage no-ant">
         <h1 class="no-ant">Young Trustee Election Coverage</h1>
         <div class="row">
             <div class="col-md-8 col-sm-12 main-content">
                 <div id="section-carousel" class="carousel slide no-ant" data-ride="carousel">
 
                     <!-- Indicators -->
-                    <div class="carousel-inner" role="listbox">
+                    <div class="carousel-inner no-ant" role="listbox">
                         <div class="item active">
                             <a href="http://www.dukechronicle.com/article/2016/02/free-speech-housing-model-among-top-priorities-for-yt-candidate-schreiber"><img src="https://s3.amazonaws.com/media.dtc/20609_schreibero.jpg" class="carousel-image"></a>
-                            <a href="http://www.dukechronicle.com/article/2016/02/free-speech-housing-model-among-top-priorities-for-yt-candidate-schreiber"><img src="https://s3.amazonaws.com/media.dtc/20609_schreibero.jpg"></a>
+                            <!--<a href="http://www.dukechronicle.com/article/2016/02/free-speech-housing-model-among-top-priorities-for-yt-candidate-schreiber"><img src="https://s3.amazonaws.com/media.dtc/20609_schreibero.jpg"></a>-->
                             <div class="carousel-caption">
                                 <header>
                                     <h2><a href="http://www.dukechronicle.com/article/2016/02/free-speech-housing-model-among-top-priorities-for-yt-candidate-schreiber">Free speech, housing model among top priorities for YT candidate Max Schreiber</a></h2>
@@ -246,7 +294,7 @@
                         </div>
                         <div class="item">
                             <a href="http://www.dukechronicle.com/article/2016/02/edwards-focused-on-equality-ahead-of-young-trustee-election"><img src="https://s3.amazonaws.com/media.dtc/20608_edwardsf.jpg" class="carousel-image"></a>
-                            <a href="http://www.dukechronicle.com/article/2016/02/edwards-focused-on-equality-ahead-of-young-trustee-election"><img src="https://s3.amazonaws.com/media.dtc/20608_edwardsf.jpg"></a>
+                            <!--<a href="http://www.dukechronicle.com/article/2016/02/edwards-focused-on-equality-ahead-of-young-trustee-election"><img src="https://s3.amazonaws.com/media.dtc/20608_edwardsf.jpg"></a>-->
                             <div class="carousel-caption">
                                 <header>
                                     <h2><a href="http://www.dukechronicle.com/article/2016/02/edwards-focused-on-equality-ahead-of-young-trustee-election">Jamal Edwards focused on equality ahead of Young Trustee election</a></h2>
@@ -259,7 +307,7 @@
                         </div>
                         <div class="item">
                             <a href="http://www.dukechronicle.com/article/2016/02/yt-candidate-wills-rooney-emphasizes-integrated-curriculum"><img src="https://s3.amazonaws.com/media.dtc/20736_willsrooneynewf.jpg" class="carousel-image"></a>
-                            <a href="http://www.dukechronicle.com/article/2016/02/yt-candidate-wills-rooney-emphasizes-integrated-curriculum"><img src="https://s3.amazonaws.com/media.dtc/20736_willsrooneynewf.jpg"></a>
+                            <!--<a href="http://www.dukechronicle.com/article/2016/02/yt-candidate-wills-rooney-emphasizes-integrated-curriculum"><img src="https://s3.amazonaws.com/media.dtc/20736_willsrooneynewf.jpg"></a>-->
                             <div class="carousel-caption">
                                 <header>
                                     <h2><a href="http://www.dukechronicle.com/article/2016/02/yt-candidate-wills-rooney-emphasizes-integrated-curriculum">YT candidate Wills Rooney emphasizes integrated curriculum</a></h2>
@@ -270,19 +318,6 @@
                                 </header>
                             </div>
                         </div>
-                        <!--<div class="item">
-                        <a href="http://www.dukechronicle.com/article/2016/01/spring-common-ground-retreat-cancelled"><img src="https://s3.amazonaws.com/media.dtc/20443_commongroundp.jpg" class="carousel-image"></a>
-                        <a href="http://www.dukechronicle.com/article/2016/01/spring-common-ground-retreat-cancelled"><img src="https://s3.amazonaws.com/media.dtc/20443_commongroundp.jpg"></a>
-                        <div class="carousel-caption">
-                            <header>
-                                <h2><a href="http://www.dukechronicle.com/article/2016/01/spring-common-ground-retreat-cancelled">Spring Common Ground retreat cancelled</a></h2>
-                                <span class="dateline">
-                                    By Ryan Zhang |
-                                    January 29th, 2016
-                                </span>
-                            </header>
-                        </div>
-                    </div>-->
                     </div>
 
                     <a class="left carousel-control" href="#section-carousel" role="button" data-slide="prev">
@@ -326,7 +361,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 right-rail hidden visible-md visible-lg">
+            <div class="col-md-6 right-rail hidden hidden-md visible-lg">
                 <div class="col-md-12 hidden-xs hidden-sm whats-hot">
                     <!-- Section Heading -->
                     <h5 class="navy">Other Coverage</h5>
@@ -379,7 +414,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row no-ant">
             <div class="col-sm-12 section-box">
                 <h5 class="title"><!--<a href="section/news">-->Endorsements<!--</a>--></h5>
 
@@ -444,7 +479,7 @@
         <br />
     </div>
     <footer class="container no-ant">
-        <div class="row inner-footer-container">
+        <div class="row inner-footer-container no-ant">
             <div class="col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
                 <div class="row">
                     <div class="col-sm-4 col-xs-10 col-md-3 footer-brand">
