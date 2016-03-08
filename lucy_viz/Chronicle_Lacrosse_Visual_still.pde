@@ -36,7 +36,7 @@ void setup(){
       if (words[i].toLowerCase().equals(trigger[j])){
         count++;
         trigs.add(words[i]);
-        trigCount.add(Integer.parseInt(nums[i]));
+        trigCount.add(int(nums[i]));
       }
     }
     if (count!=0){
@@ -46,10 +46,10 @@ void setup(){
         fill(palette[col]);
       }else fill(palette[4]);
     }
-    if (Integer.parseInt(nums[i])>80){
+    if (int(nums[i])>80){
       textSize(100);
     }else{
-    textSize(Integer.parseInt(nums[i]));
+    textSize(int(nums[i]));
     }
     text(words[i],x,y);}
 }
