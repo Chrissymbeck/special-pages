@@ -42,16 +42,7 @@ void draw(){
     else if (int(nums[i])<40){
       textSize(int(nums[i])*1.0);
     }else {textSize(int(nums[i]));}
-    if (!words[i].equals("http://wwwedgov/policy/gen/guid/fpco/ferpa/indexhtml") 
-	&& !words[i].equals("http://wwwdukenewsdukeedu/mmedia/features/lacrosse_incident/committeeshtml#campusculture")
-	&& !words[i].equals("http://wwwdukenewsdukeedu/mmedia/features/lacrosse_incident/committeeshtml#campusculture")
-	&& !words[i].equals("http://newsdukeedu/lacrosseincident/")
-	&& !words[i].equals("http://healtydevilstudentaffairsdukeedu")
-	&& !words[i].equals("http://wcstudentaffairsdukeedu")
-	&& !words[i].equals("http://wwwdukenewsdukeedu/policehtml")
-	&& !words[i].equals("http://wwwdukenewsdukeedu/2006/12/60_minuteshtml")
-	&& !words[i].equals("http://wwwedgov/policy/gen/guid/fpco/ferpa/indexhtml")
-	&& !words[i].equals("http://wwwdukenewsdukeedu/mmedia/features/lacrosse_incident/committeeshtml#campusculture"))
+    if (!words[i].startsWith("http"))
 	{
 		text(words[i],x,y);
 	}
