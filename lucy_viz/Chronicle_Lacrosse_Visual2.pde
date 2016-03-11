@@ -10,6 +10,7 @@ int i=0;
 void setup(){
   size(750,600); //change size
   background(palette[0]);
+  frameRate(120);
 }
 
 void draw(){
