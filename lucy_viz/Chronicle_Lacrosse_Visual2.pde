@@ -1,4 +1,4 @@
-color[] palette={#122661,#FF4040,#8F7B0D,#8F660D,#8696C5};
+color[] palette={#122661,#ff9900,#8F7B0D,#8F660D,#8696C5};
 String[] trigger={"rape","raped","lacrosse","brodhead","accusation","sickening","misconduct",
 "sexual","toleration","Duke","deliberate","allegations","suspension","team","conduct","charges", 
 "student","mistake","guilty","investigation","behavior","report","attorney","innocent","athletic","evidence"
@@ -8,7 +8,7 @@ int y;
 int i=0;
 
 void setup(){
-  size(1000,800); //change size
+  size(750,600); //change size
   background(palette[0]);
 }
 
@@ -16,8 +16,8 @@ void draw(){
   String words[]=loadStrings("filteredWords.txt");
   String nums[]=loadStrings("filteredNums.txt");
   //for (int i=0;i<words.length;i++){
-    x=(int)random(100,800); //change size
-    y=(int)random(50,700); //change size
+    x=(int)random(25,675); //change size
+    y=(int)random(50,550); //change size
     int col=(int) random(5);
     if (nums[i].equals("243")){
       println(words[i]);
@@ -37,10 +37,24 @@ void draw(){
     //  textSize(100);
     //}else{
      if (int(nums[i])>100 || count!=0 ){
-      textSize(50);
+      textSize(20);
     }
-    else {textSize(int(nums[i]));}
-    text(words[i],x,y);
+    else if (int(nums[i])<40){
+      textSize(int(nums[i])*1.0);
+    }else {textSize(int(nums[i]));}
+    if (!words[i].equals("http://wwwedgov/policy/gen/guid/fpco/ferpa/indexhtml") 
+	&& !words[i].equals("http://wwwdukenewsdukeedu/mmedia/features/lacrosse_incident/committeeshtml#campusculture")
+	&& !words[i].equals("http://wwwdukenewsdukeedu/mmedia/features/lacrosse_incident/committeeshtml#campusculture")
+	&& !words[i].equals("http://newsdukeedu/lacrosseincident/")
+	&& !words[i].equals("http://healtydevilstudentaffairsdukeedu")
+	&& !words[i].equals("http://wcstudentaffairsdukeedu")
+	&& !words[i].equals("http://wwwdukenewsdukeedu/policehtml")
+	&& !words[i].equals("http://wwwdukenewsdukeedu/2006/12/60_minuteshtml")
+	&& !words[i].equals("http://wwwedgov/policy/gen/guid/fpco/ferpa/indexhtml")
+	&& !words[i].equals("http://wwwdukenewsdukeedu/mmedia/features/lacrosse_incident/committeeshtml#campusculture"))
+	{
+		text(words[i],x,y);
+	}
     //delay(500);
   //}
   i++;

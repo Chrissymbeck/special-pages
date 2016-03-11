@@ -10,7 +10,7 @@ int j=0;
 int k=0;
 
 void setup(){
-  size(1000,800); //change size
+  size(750,600); //change size
   background(palette[0]);
 }
 
@@ -18,8 +18,8 @@ void draw(){
   String words[]=loadStrings("filteredOutsWords.txt");
   String nums[]=loadStrings("filteredOutsNums.txt");
   //for (int i=0;i<words.length;i++){
-    x=(int)random(100,800); //change size
-    y=(int)random(50,700);  //change size
+    x=(int)random(25,700); //change size
+    y=(int)random(50,550);  //change size
     int col=(int) random(5);
     if (nums[i].equals("243")){
       println(words[i]);
@@ -38,10 +38,10 @@ void draw(){
       }else fill(palette[4]);
     
     if (int(nums[i])>100 || count!=0 ){
-      textSize(50);
+      textSize(30);
     }
     else if (int(nums[i])<40){
-      textSize(int(nums[i])*2);
+      textSize(int(nums[i])*1.5);
     }else {textSize(int(nums[i]));}
 
 	if (!words[i].equals("ago"))
