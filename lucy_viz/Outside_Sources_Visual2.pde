@@ -8,16 +8,18 @@ int y;
 int i=0;
 int j=0;
 int k=0;
+String words[];
+String nums[];
 
 void setup(){
   size(750,600); //change size
   background(palette[0]);
-  frameRate(120);
+  frameRate(45);
+  words =loadStrings("filteredOutsWords.txt");
+  nums =loadStrings("filteredOutsNums.txt");
 }
 
 void draw(){
-  String words[]=loadStrings("filteredOutsWords.txt");
-  String nums[]=loadStrings("filteredOutsNums.txt");
   //for (int i=0;i<words.length;i++){
     x=(int)random(25,700); //change size
     y=(int)random(50,550);  //change size
