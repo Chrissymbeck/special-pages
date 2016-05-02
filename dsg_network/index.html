@@ -18,6 +18,10 @@
         h2 {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
+
+        .credit {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -25,8 +29,12 @@
     <div id="sigma-container"></div>
     <br/>
     <div id="explainer">
-        <em>This networks shows DSG members who vote in similar ways. Members who vote the same way more than 75 percent of the time are connected by a line. Groups of members connected to each other are grouped closer together and colored similarly.</em>
-        <h6>Interactive by Gautam Hathi | The Chronicle</h6>
+        <div class="credit">
+            <h6>Interactive by Gautam Hathi | The Chronicle</h6>
+        </div>
+        <div class="caption">
+            <em>This networks shows DSG members who vote in similar ways. Members who vote the same way more than 75 percent of the time and have at least 3 common votes are connected by a line. Groups of members connected to each other are grouped closer together and colored similarly. The spatial grouping is computed using the <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679">Force Atlas</a> algorithm and the color groups are computed using the <a href="https://en.wikipedia.org/wiki/Louvain_Modularity">Louvain method</a></em>
+        </div>
     </div>
     <script src="sigma.min.js"></script>
     <script src="sigma.parsers.gexf.min.js"></script>
