@@ -110,7 +110,7 @@
         <viz:position x="424.6467" y="401.36307"></viz:position>
         <viz:color r="255" g="136" b="5"></viz:color>
       </node>
-      <node id="Robert Palmiasano" label="Robert Palmiasano">
+      <node id="Robert Palmisano" label="Robert Palmisano">
         <attvalues>
           <attvalue for="modularity_class" value="5"></attvalue>
         </attvalues>
@@ -678,12 +678,12 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="220" source="Robert Palmiasano" target="Joe Pecararo">
+      <edge id="220" source="Robert Palmisano" target="Joe Pecararo">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="221" source="Robert Palmiasano" target="Nicole Rapfogel">
+      <edge id="221" source="Robert Palmisano" target="Nicole Rapfogel">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -783,7 +783,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="272" source="Riyanka Ganguly" target="Robert Palmiasano" weight="0.916666667">
+      <edge id="272" source="Riyanka Ganguly" target="Robert Palmisano" weight="0.916666667">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -958,7 +958,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="307" source="Nia Moore" target="Robert Palmiasano" weight="0.875">
+      <edge id="307" source="Nia Moore" target="Robert Palmisano" weight="0.875">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -1143,7 +1143,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="344" source="Tanner Lockhead" target="Robert Palmiasano" weight="0.833333333">
+      <edge id="344" source="Tanner Lockhead" target="Robert Palmisano" weight="0.833333333">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -1168,7 +1168,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="349" source="Jacqueline Monetta" target="Robert Palmiasano" weight="0.833333333">
+      <edge id="349" source="Jacqueline Monetta" target="Robert Palmisano" weight="0.833333333">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -1368,7 +1368,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="389" source="Bryan Dinner" target="Robert Palmiasano" weight="0.8">
+      <edge id="389" source="Bryan Dinner" target="Robert Palmisano" weight="0.8">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -1563,7 +1563,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="428" source="Anna-Karin Hess" target="Robert Palmiasano" weight="0.777777778">
+      <edge id="428" source="Anna-Karin Hess" target="Robert Palmisano" weight="0.777777778">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -1663,7 +1663,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="448" source="Jacob Lettie" target="Robert Palmiasano" weight="0.769230769">
+      <edge id="448" source="Jacob Lettie" target="Robert Palmisano" weight="0.769230769">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
@@ -1678,7 +1678,7 @@
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
       </edge>
-      <edge id="451" source="Robert Palmiasano" target="Kabou Yengo-Passy" weight="0.769230769">
+      <edge id="451" source="Robert Palmisano" target="Kabou Yengo-Passy" weight="0.769230769">
         <attvalues>
           <attvalue for="valid" value="TRUE"></attvalue>
         </attvalues>
