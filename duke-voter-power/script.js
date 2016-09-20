@@ -97,7 +97,7 @@ function createVoteLocationResult(state) {
     if (state == "NC") {
         image = "<img src='DukeVotes.png'>"
         state = '<a href="https://studentaffairs.duke.edu/voters">NC</a>'
-        $("#stateToVoteIn").append('<div>Your vote will be more likely to affect the outcome of the election if you register in North Carolina and vote here. You can find our guide to registering to vote in North Carolina <a href="http://www.dukechronicle.com/article/2016/09/how-to-vote-a-chronicle-guide-to-everything-you-need-to-know">here</a></div>' + image);
+        $("#stateToVoteIn").append('<div><b>Your vote will be more likely to affect the outcome of the election if you register in North Carolina and vote here. You can find our guide to registering to vote in North Carolina <a href="http://www.dukechronicle.com/article/2016/09/how-to-vote-a-chronicle-guide-to-everything-you-need-to-know">here</a></b></div>');
     } else {
         $("#stateToVoteIn").append('Your vote will be more likely to affect the outcome of the election if you vote in the state where you’re currently registered.');
     }
