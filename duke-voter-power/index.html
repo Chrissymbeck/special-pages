@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
+<head>
+  <base target="_parent" />
+</head>
 <body>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -78,6 +80,7 @@
     .credit {
         text-align: right;
     }
+
     </style>
     <form class="pure-form pure-form-stacked">
         <label class="input">
@@ -85,7 +88,7 @@
             <div id="intro">Votes are more impactful in some states than others. Select the state where you’re currently registered to vote and we’ll check <a href="http://projects.fivethirtyeight.com/2016-election-forecast/?ex_cid=rrpromo">FiveThirtyEight’s</a> Voter Power Index to see if your vote will be more impactful if you register in North Carolina.</div>
         </label>
         <!--<input id="myState" placeholder="What state you are from" class="input" type="text">-->
-        <select id="myState">
+        <select class="pure-input" id="myState">
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -141,7 +144,7 @@
     </form>
     <div id="stateToVoteIn"></div>
     <hr>
-    <span id="explanation">Our interactive map shows FiveThirtyEight's Voter Power Index for all 50 states.<br><br>According to FiveThiryEight: <i>Two measures help capture how important a state and its voters will be in determining the next president: <b>“Tipping-point chance”</b> is the probability that a state will provide the decisive vote in the Electoral College. <b>“Voter power index”</b> is the relative likelihood that an individual voter in a state will determine the Electoral College winner.</i></span>
+    <span id="explanation">Our interactive map shows FiveThirtyEight's Voter Power Index for all 50 states. A vote in states that are colored in a darker shade of green are more likely to affect the outcome of the election. Hover over the map to see the Voter Power Index for each state.<br><br>According to FiveThiryEight: <i>Two measures help capture how important a state and its voters will be in determining the next president: <b>“Tipping-point chance”</b> is the probability that a state will provide the decisive vote in the Electoral College. <b>“Voter power index”</b> is the relative likelihood that an individual voter in a state will determine the Electoral College winner.</i></span>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="topojson.min.js"></script>
