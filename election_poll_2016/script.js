@@ -1,5 +1,6 @@
 var group = [];
 var trump = {
+    "Name": "Donald Trump",
     "School": {
         "Trinity": 46,
         "Pratt": 12,
@@ -37,6 +38,7 @@ var trump = {
 }
 
 var clinton = {
+    "Name": "Hillary Clinton",
     "School": {
         "Trinity": 558,
         "Pratt": 133,
@@ -197,26 +199,14 @@ function graph(type) {
 
     $(".name").show();
     $(".pie").empty();
+    $(".name").empty();
     graph_bar(type);
     if (type == "main") {
         console.log("type is main");
         $(".name").hide();
         createPieChart("#piechart_0", { "Hillary Clinton": 691, "Undecided": 61, "Donald Trump": 58, "Gary Johnson": 34, "Other": 6 });
-    }
-    for (var i = 0; i < candidates.length; i++) {
-        if (type == "School") {
-            createPieChart("#piechart_" + i, candidates[i].School);
-        } else if (type == "Gender") {
-            createPieChart("#piechart_" + i, candidates[i].Gender);
-        } else if (type == "Race") {
-            createPieChart("#piechart_" + i, candidates[i].Race);
-        } else if (type == "Party") {
-            createPieChart("#piechart_" + i, candidates[i].Party);
-        } else if (type == "Year") {
-            createPieChart("#piechart_" + i, candidates[i].Year);
-        }else if (type=="Group"){
-            createPieChart("#piechart_" + i, candidates[i].Group);
-        }
+    } else {
+        createPieCharts(type);
     }
 }
 
@@ -241,8 +231,8 @@ function parseBarChartData(type) {
     return data;
 }
 
+
 function createBarChart(divElement, type) {
-    console.log(group);
     $("#barchart").empty();
     if (type == "main") {
         arrayOfData = [
@@ -281,15 +271,20 @@ function createBarChart(divElement, type) {
 }
 
 
-//createPieChart("#piechart", clinton.Party);
+function parsePieChartData(type, key) {
+    var data = [];
+    //for (var key in candidates[0][type]) {
+        for (var j = 0; j < candidates.length; j++) {
+            data.push([candidates[j].Name,candidates[j][type][key]]);
+        }
+    //}
 
-function createPieChart(divElement, dataObject) {
-    var arrayOfData = [];
-    for (var key in dataObject) {
-        arrayOfData.push([key, dataObject[key]]);
-    }
-    console.log("arrayOfData");
+    return data;
+}
+
+function createPieChart(divElement, arrayOfData) {
     console.log(arrayOfData);
+    console.log("Created pie chart!");
     var chart = c3.generate({
         bindto: divElement,
         data: {
@@ -298,4 +293,16 @@ function createPieChart(divElement, dataObject) {
         }
     });
 
+}
+
+function createPieCharts(type) {
+    var dataObject = clinton[type];
+    var i = 0;
+    for (var key in dataObject) {
+        var arrayOfData = parsePieChartData(type, key);
+        $("#pielabel_"+i).html(key);
+        createPieChart("#piechart_" + i, arrayOfData);
+        console.log("id: #piechart_" + i)
+        i++;
+    }
 }
