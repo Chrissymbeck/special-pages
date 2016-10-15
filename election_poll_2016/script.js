@@ -151,11 +151,11 @@ var other = {
         }
     }
     //main bar chart
-createBarChart("#barchart", [
-    ['Number of students who plan to vote for a specific candidate', 691, 61, 58, 34, 6]
-]);
 
 var candidates = [clinton, trump, johnson, undecided, other];
+console.log(candidates);
+
+createBarChart("#barchart", "main");
 
 function graph(type) {
 
@@ -174,13 +174,37 @@ function graph(type) {
             createPieChart("#piechart_" + i, candidates[i].Year);
         }
     }
-
 }
 
 $(".name").hide();
 
 
-function createBarChart(divElement, arrayOfData) {
+function graph_bar(type) {
+    var divElement = "#barchart";
+    $(".name").show();
+    $(".pie").empty();
+    createBarChart(divElement,type);
+}
+
+function parseBarChartData(type) {
+
+    var data = [];
+    for (var key in candidates[0][type]) {
+        data.push([key, candidates[0][type][key], candidates[1][type][key], candidates[2][type][key], candidates[3][type][key], candidates[4][type][key]]);
+    }
+
+    return data;
+}
+
+function createBarChart(divElement, type) {
+    $("#barchart").empty();
+    if (type == "main") {
+        arrayOfData = [
+            ['Number of students who plan to vote for a specific candidate', 691, 61, 58, 34, 6]
+        ];
+    } else {
+        arrayOfData = parseBarChartData(type);
+    }
     var chart = c3.generate({
         bindto: divElement,
         data: {
