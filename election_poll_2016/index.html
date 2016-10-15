@@ -12,8 +12,13 @@
 </head>
 
 <body>
+    <button id="main" onclick='graph("main");'>Overall Breakdown</button>
+    <button id="school" onclick='graph("School");'>School</button>
+    <button id="gender" onclick='graph("Gender");'>Gender</button>
+    <button id="party" onclick='graph("Party");'>Party</button>
+    <button id="race" onclick='graph("Race");'>Race</button>
+    <button id="year" onclick='graph("Year");'>Year</button>
     <div id="barchart"></div>
-    <!--
     <div class="name">Hillary Clinton</div>
     <div class="pie" id="piechart_0"></div>
     <div class="name">Donald Trump</div>
@@ -24,13 +29,6 @@
     <div class="pie" id="piechart_3"></div>
     <div class="name">Other</div>
     <div class="pie" id="piechart_4"></div>
-    -->
-    <button id="main" onclick='graph_bar("main");'>Overall Breakdown</button>
-    <button id="school" onclick='graph_bar("School");'>School</button>
-    <button id="gender" onclick='graph_bar("Gender");'>Gender</button>
-    <button id="party" onclick='graph_bar("Party");'>Party</button>
-    <button id="race" onclick='graph_bar("Race");'>Race</button>
-    <button id="year" onclick='graph_bar("Year");'>Year</button>
     <script src="c3.min.js"></script>
     <script type="text/javascript" src="d3.min.js"></script>
     <script src="script.js"></script>

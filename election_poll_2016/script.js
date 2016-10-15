@@ -1,4 +1,4 @@
-var group=[];
+var group = [];
 var trump = {
     "School": {
         "Trinity": 46,
@@ -162,16 +162,22 @@ function graph(type) {
 
     $(".name").show();
     $(".pie").empty();
+    graph_bar(type);
+    if (type == "main") {
+        console.log("type is main");
+        $(".name").hide();
+        createPieChart("#piechart_0", { "Hillary Clinton": 691, "Undecided": 61, "Donald Trump": 58, "Gary Johnson": 34, "Other": 6 });
+    }
     for (var i = 0; i < candidates.length; i++) {
-        if (type == "school") {
+        if (type == "School") {
             createPieChart("#piechart_" + i, candidates[i].School);
-        } else if (type == "gender") {
+        } else if (type == "Gender") {
             createPieChart("#piechart_" + i, candidates[i].Gender);
-        } else if (type == "race") {
+        } else if (type == "Race") {
             createPieChart("#piechart_" + i, candidates[i].Race);
-        } else if (type == "party") {
+        } else if (type == "Party") {
             createPieChart("#piechart_" + i, candidates[i].Party);
-        } else if (type == "year") {
+        } else if (type == "Year") {
             createPieChart("#piechart_" + i, candidates[i].Year);
         }
     }
@@ -234,7 +240,7 @@ function createBarChart(divElement, type) {
         }
     });
 
-    group=[];
+    group = [];
 }
 
 
