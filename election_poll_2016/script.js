@@ -194,6 +194,7 @@ var candidates = [clinton, trump, johnson, undecided, other];
 console.log(candidates);
 
 createBarChart("#barchart", "main");
+createPieChart("#piechart_0", [["Hillary Clinton", 691], ["Undecided", 61], ["Donald Trump", 58], ["Gary Johnson", 34], ["Other", 6 ]]);
 
 function graph(type) {
 
@@ -204,7 +205,7 @@ function graph(type) {
     if (type == "main") {
         console.log("type is main");
         $(".name").hide();
-        createPieChart("#piechart_0", { "Hillary Clinton": 691, "Undecided": 61, "Donald Trump": 58, "Gary Johnson": 34, "Other": 6 });
+        createPieChart("#piechart_0", [["Hillary Clinton", 691], ["Undecided", 61], ["Donald Trump", 58], ["Gary Johnson", 34], ["Other", 6 ]]);
     } else {
         createPieCharts(type);
     }
