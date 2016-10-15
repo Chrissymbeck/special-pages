@@ -18,6 +18,7 @@ var trump = {
         "Black": 1,
         "Asian": 7,
         "Hispanic": 4,
+        "Other":3
     },
     "Year": {
         "2020": 14,
@@ -46,7 +47,8 @@ var clinton = {
         "White": 348,
         "Black": 74,
         "Asian": 196,
-        "Hispanic": 49
+        "Hispanic": 49,
+        "Other":14
     },
     "Year": {
         "2020": 208,
@@ -75,7 +77,8 @@ var undecided = {
         "White": 39,
         "Black": 2,
         "Asian": 15,
-        "Hispanic": 2
+        "Hispanic": 2,
+        "Other":2
     },
     "Year": {
         "2020": 17,
@@ -104,36 +107,8 @@ var johnson = {
         "White": 29,
         "Black": 1,
         "Asian": 0,
-        "Hispanic": 0
-    },
-    "Year": {
-        "2020": 12,
-        "2019": 10,
-        "2018": 10,
-        "2017": 2
-    }
-}
-
-var johnson = {
-    "School": {
-        "Trinity": 25,
-        "Pratt": 9
-    },
-    "Gender": {
-        "Female": 5,
-        "Male": 28
-    },
-    "Party" {
-        "Democratic": 0,
-        "Republican": 17,
-        "Unaffiliated/Independent": 7,
-        "Libertarian": 9
-    },
-    "Race": {
-        "White": 29,
-        "Black": 1,
-        "Asian": 0,
-        "Hispanic": 0
+        "Hispanic": 0,
+        "Other":0
     },
     "Year": {
         "2020": 12,
@@ -162,7 +137,8 @@ var other = {
         "White": 2,
         "Black": 0,
         "Asian": 1,
-        "Hispanic": 1
+        "Hispanic": 1,
+        "Other":2
     },
     "Year": {
         "2020": 0,
