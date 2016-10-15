@@ -1,3 +1,4 @@
+var group=[];
 var trump = {
     "School": {
         "Trinity": 46,
@@ -183,20 +184,22 @@ function graph_bar(type) {
     var divElement = "#barchart";
     $(".name").show();
     $(".pie").empty();
-    createBarChart(divElement,type);
+    createBarChart(divElement, type);
 }
 
-function parseBarChartData(type) {
 
+function parseBarChartData(type) {
     var data = [];
     for (var key in candidates[0][type]) {
         data.push([key, candidates[0][type][key], candidates[1][type][key], candidates[2][type][key], candidates[3][type][key], candidates[4][type][key]]);
+        group.push(key);
     }
 
     return data;
 }
 
 function createBarChart(divElement, type) {
+    console.log(group);
     $("#barchart").empty();
     if (type == "main") {
         arrayOfData = [
@@ -210,7 +213,7 @@ function createBarChart(divElement, type) {
         data: {
             columns: arrayOfData,
             type: 'bar',
-            onclick: function(d, element) { console.log(element); }
+            groups: [group]
         },
         axis: {
             x: {
@@ -230,6 +233,8 @@ function createBarChart(divElement, type) {
             }
         }
     });
+
+    group=[];
 }
 
 
