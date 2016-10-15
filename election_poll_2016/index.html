@@ -1,21 +1,36 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="c3.min.css">
-        
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="c3.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
     <div id="barchart"></div>
-    <div id="piechart"></div>
+    <div class="name">Hillary Clinton</div>
+    <div class="pie" id="piechart_0"></div>
+    <div class="name">Donald Trump</div>
+    <div class="pie" id="piechart_1"></div>
+    <div class="name">Gary Johnson</div>
+    <div class="pie" id="piechart_2"></div>
+    <div class="name">Undecided</div>
+    <div class="pie" id="piechart_3"></div>
+    <div class="name">Other</div>
+    <div class="pie" id="piechart_4"></div>
+    <button id="school" onclick='graph("school");'>School</button>
+    <button id="gender" onclick='graph("gender");'>Gender</button>
+    <button id="party" onclick='graph("party");'>Party</button>
+    <button id="race" onclick='graph("race");'>Race</button>
+    <button id="year" onclick='graph("year");'>Year</button>
+    <script src="c3.min.js"></script>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <script src="script.js"></script>
+</body>
 
-
-        <script src="c3.min.js"></script>
-        <script type="text/javascript" src="d3.min.js"></script>
-        <script src="script.js"></script>
-    </body>
 </html>

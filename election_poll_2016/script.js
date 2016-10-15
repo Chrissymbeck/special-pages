@@ -18,7 +18,7 @@ var trump = {
         "Black": 1,
         "Asian": 7,
         "Hispanic": 4,
-        "Other":3
+        "Other": 3
     },
     "Year": {
         "2020": 14,
@@ -48,7 +48,7 @@ var clinton = {
         "Black": 74,
         "Asian": 196,
         "Hispanic": 49,
-        "Other":14
+        "Other": 14
     },
     "Year": {
         "2020": 208,
@@ -59,6 +59,7 @@ var clinton = {
 }
 
 var undecided = {
+    "Name": "Undecided",
     "School": {
         "Trinity": 42,
         "Pratt": 19
@@ -78,7 +79,7 @@ var undecided = {
         "Black": 2,
         "Asian": 15,
         "Hispanic": 2,
-        "Other":2
+        "Other": 2
     },
     "Year": {
         "2020": 17,
@@ -89,6 +90,7 @@ var undecided = {
 }
 
 var johnson = {
+    "Name": "Gary Johnson",
     "School": {
         "Trinity": 25,
         "Pratt": 9
@@ -108,7 +110,7 @@ var johnson = {
         "Black": 1,
         "Asian": 0,
         "Hispanic": 0,
-        "Other":0
+        "Other": 0
     },
     "Year": {
         "2020": 12,
@@ -119,84 +121,108 @@ var johnson = {
 }
 
 var other = {
-    "School": {
-        "Trinity": 6,
-        "Pratt": 0
-    },
-    "Gender": {
-        "Female": 1,
-        "Male": 5
-    },
-    "Party" {
-        "Democratic": 2,
-        "Republican": 2,
-        "Unaffiliated/Independent": 2,
-        "Libertarian": 0
-    },
-    "Race": {
-        "White": 2,
-        "Black": 0,
-        "Asian": 1,
-        "Hispanic": 1,
-        "Other":2
-    },
-    "Year": {
-        "2020": 0,
-        "2019": 1,
-        "2018": 4,
-        "2017": 1
+        "Name": "Other",
+        "School": {
+            "Trinity": 6,
+            "Pratt": 0
+        },
+        "Gender": {
+            "Female": 1,
+            "Male": 5
+        },
+        "Party": {
+            "Democratic": 2,
+            "Republican": 2,
+            "Unaffiliated/Independent": 2,
+            "Libertarian": 0
+        },
+        "Race": {
+            "White": 2,
+            "Black": 0,
+            "Asian": 1,
+            "Hispanic": 1,
+            "Other": 2
+        },
+        "Year": {
+            "2020": 0,
+            "2019": 1,
+            "2018": 4,
+            "2017": 1
+        }
     }
+    //main bar chart
+createBarChart("#barchart", [
+    ['Number of students who plan to vote for a specific candidate', 691, 61, 58, 34, 6]
+]);
+
+var candidates = [clinton, trump, johnson, undecided, other];
+
+function graph(type) {
+
+    $(".name").show();
+    $(".pie").empty();
+    for (var i = 0; i < candidates.length; i++) {
+        if (type == "school") {
+            createPieChart("#piechart_" + i, candidates[i].School);
+        } else if (type == "gender") {
+            createPieChart("#piechart_" + i, candidates[i].Gender);
+        } else if (type == "race") {
+            createPieChart("#piechart_" + i, candidates[i].Race);
+        } else if (type == "party") {
+            createPieChart("#piechart_" + i, candidates[i].Party);
+        } else if (type == "year") {
+            createPieChart("#piechart_" + i, candidates[i].Year);
+        }
+    }
+
 }
 
-var chart = c3.generate({
-    bindto: '#barchart',
-    data: {
-        columns: [
-            ['Number of students who plan to vote for a specific candidate', 691, 61, 58, 34, 6],
-            ["Trinity", 558, 42, 46, 25, 6],
-            ["Pratt", 133, 19, 12, 9, 0],
-            ["Female", 400, 31, 15, 5, 1],
-            ["Male", 286, 29, 41, 28, 5],
-            ["Democratic", 488, 7, 0, 0, 2],
-            ["Republican", ]
-        ],
-        type: 'bar',
-        onclick: function(d, element) { console.log(element); }
-    },
-    axis: {
-        x: {
-            type: 'category',
-            categories: ['Hillary Clinton', 'Undecided', 'Donald Trump', 'Gary Johnson', 'Other']
-        },
-        y: {
-            label: {
-                text: "Number of students who plan to vote for a candidate",
-                position: 'outer-middle'
-            }
-        }
-    },
-    bar: {
-        width: {
-            ratio: 0.5 // this makes bar width 50% of length between ticks
-        }
-    }
-});
+$(".name").hide();
 
-var schoolType = [
-    []
-]
 
-createPieChart("#piechart", )
-
-function createPieChart(divElement, arrayOfData) {
+function createBarChart(divElement, arrayOfData) {
     var chart = c3.generate({
         bindto: divElement,
         data: {
             columns: arrayOfData,
-            type: 'pie',
-            onclick: function(d, i) { console.log("onclick", d, i); },
-            onmouseover: function(d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function(d, i) { console.log("onmouseout", d, i); }
+            type: 'bar',
+            onclick: function(d, element) { console.log(element); }
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: ['Hillary Clinton', 'Undecided', 'Donald Trump', 'Gary Johnson', 'Other']
+            },
+            y: {
+                label: {
+                    text: "Number of students who plan to vote for a candidate",
+                    position: 'outer-middle'
+                }
+            }
+        },
+        bar: {
+            width: {
+                ratio: 0.5 // this makes bar width 50% of length between ticks
+            }
+        }
+    });
+}
+
+
+//createPieChart("#piechart", clinton.Party);
+
+function createPieChart(divElement, dataObject) {
+    var arrayOfData = [];
+    for (var key in dataObject) {
+        arrayOfData.push([key, dataObject[key]]);
+    }
+    console.log("arrayOfData");
+    console.log(arrayOfData);
+    var chart = c3.generate({
+        bindto: divElement,
+        data: {
+            columns: arrayOfData,
+            type: 'pie'
         }
     });
 
