@@ -26,6 +26,13 @@ var trump = {
         "2019": 12,
         "2018": 18,
         "2017": 14
+    },
+    "Group": {
+        "Sorority": 4,
+        "Fraternity": 11,
+        "Independent House": 15,
+        "None": 26,
+        "Selective Living Group": 2
     }
 }
 
@@ -56,6 +63,13 @@ var clinton = {
         "2019": 165,
         "2018": 153,
         "2017": 165
+    },
+    "Group": {
+        "Sorority": 110,
+        "Fraternity": 64,
+        "Independent House": 119,
+        "None": 300,
+        "Selective Living Group": 96
     }
 }
 
@@ -87,6 +101,13 @@ var undecided = {
         "2019": 16,
         "2018": 12,
         "2017": 16
+    },
+    "Group": {
+        "Sorority": 7,
+        "Fraternity": 7,
+        "Independent House": 12,
+        "None": 32,
+        "Selective Living Group": 3
     }
 }
 
@@ -118,6 +139,13 @@ var johnson = {
         "2019": 10,
         "2018": 10,
         "2017": 2
+    },
+    "Group": {
+        "Sorority": 1,
+        "Fraternity": 13,
+        "Independent House": 2,
+        "None": 14,
+        "Selective Living Group": 4
     }
 }
 
@@ -149,6 +177,13 @@ var other = {
             "2019": 1,
             "2018": 4,
             "2017": 1
+        },
+        "Group": {
+            "Sorority": 0,
+            "Fraternity": 0,
+            "Independent House": 4,
+            "None": 2,
+            "Selective Living Group": 0
         }
     }
     //main bar chart
@@ -179,6 +214,8 @@ function graph(type) {
             createPieChart("#piechart_" + i, candidates[i].Party);
         } else if (type == "Year") {
             createPieChart("#piechart_" + i, candidates[i].Year);
+        }else if (type=="Group"){
+            createPieChart("#piechart_" + i, candidates[i].Group);
         }
     }
 }
