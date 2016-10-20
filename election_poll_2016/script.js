@@ -194,7 +194,13 @@ var candidates = [clinton, trump, johnson, undecided, other];
 console.log(candidates);
 
 createBarChart("#barchart", "main");
-createPieChart("#piechart_0", [["Hillary Clinton", 691], ["Undecided", 61], ["Donald Trump", 58], ["Gary Johnson", 34], ["Other", 6 ]]);
+createPieChart("#piechart_0", [
+    ["Hillary Clinton", 691],
+    ["Undecided", 61],
+    ["Donald Trump", 58],
+    ["Gary Johnson", 34],
+    ["Other", 6]
+]);
 
 function graph(type) {
 
@@ -205,7 +211,13 @@ function graph(type) {
     if (type == "main") {
         console.log("type is main");
         $(".name").hide();
-        createPieChart("#piechart_0", [["Hillary Clinton", 691], ["Undecided", 61], ["Donald Trump", 58], ["Gary Johnson", 34], ["Other", 6 ]]);
+        createPieChart("#piechart_0", [
+            ["Hillary Clinton", 691],
+            ["Undecided", 61],
+            ["Donald Trump", 58],
+            ["Gary Johnson", 34],
+            ["Other", 6]
+        ]);
     } else {
         createPieCharts(type);
     }
@@ -275,9 +287,9 @@ function createBarChart(divElement, type) {
 function parsePieChartData(type, key) {
     var data = [];
     //for (var key in candidates[0][type]) {
-        for (var j = 0; j < candidates.length; j++) {
-            data.push([candidates[j].Name,candidates[j][type][key]]);
-        }
+    for (var j = 0; j < candidates.length; j++) {
+        data.push([candidates[j].Name, candidates[j][type][key]]);
+    }
     //}
 
     return data;
@@ -291,6 +303,9 @@ function createPieChart(divElement, arrayOfData) {
         data: {
             columns: arrayOfData,
             type: 'pie'
+        },
+        color: {
+            pattern: ['#000096', '#333333', '#960000', '#FFC300', '#AAAAAA']
         }
     });
 
@@ -301,7 +316,7 @@ function createPieCharts(type) {
     var i = 0;
     for (var key in dataObject) {
         var arrayOfData = parsePieChartData(type, key);
-        $("#pielabel_"+i).html(key);
+        $("#pielabel_" + i).html(key);
         createPieChart("#piechart_" + i, arrayOfData);
         console.log("id: #piechart_" + i)
         i++;
