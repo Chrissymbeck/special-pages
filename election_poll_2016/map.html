@@ -15,32 +15,9 @@
 
 <body>
     <div class="container-fluid" id="main">
-        <button id="main" onclick='graph("main");'>Overall Breakdown</button>
-        <button id="school" onclick='graph("School");'>School</button>
-        <button id="group" onclick='graph("Group");'>Student Group</button>
-        <button id="gender" onclick='graph("Gender");'>Gender</button>
-        <button id="party" onclick='graph("Party");'>Party</button>
-        <button id="race" onclick='graph("Race");'>Race</button>
-        <button id="year" onclick='graph("Year");'>Year</button>
-        <div id="barchart"></div>
-        <div class="col-md-4">
-            <div class="name" id="pielabel_0"></div>
-            <div class="pie" id="piechart_0"></div>
-            <div class="name" id="pielabel_3"></div>
-            <div class="pie" id="piechart_3"></div>
+        <div class="row-fluid">
+            <div id="us_map"></div>
         </div>
-        <div class="col-md-4">
-            <div class="name" id="pielabel_1"></div>
-            <div class="pie" id="piechart_1"></div>
-            <div class="name" id="pielabel_4"></div>
-            <div class="pie" id="piechart_4"></div>
-        </div>
-        <div class="col-md-4">
-            <div class="name" id="pielabel_2">Other</div>
-            <div class="pie" id="piechart_2"></div>
-        </div>
-        <div id="hillaryWordCloud"></div>
-        <div id="trumpWordCloud"></div>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="plugins/c3.min.js"></script>
