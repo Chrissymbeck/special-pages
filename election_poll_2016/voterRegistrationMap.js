@@ -1,125 +1,20 @@
- //A map showing where people are registered to vote
+var data = { 'WA': { 'voterRegistrations': 5, 'fillKey': '5' }, 'DE': { 'voterRegistrations': 1, 'fillKey': '1' }, 'WI': { 'voterRegistrations': 3, 'fillKey': '3' }, 'WV': { 'voterRegistrations': 0, 'fillKey': '0' }, 'HI': { 'voterRegistrations': 1, 'fillKey': '1' }, 'FL': { 'voterRegistrations': 58, 'fillKey': '58' }, 'WY': { 'voterRegistrations': 0, 'fillKey': '0' }, 'NH': { 'voterRegistrations': 1, 'fillKey': '1' }, 'NJ': { 'voterRegistrations': 8, 'fillKey': '8' }, 'NM': { 'voterRegistrations': 3, 'fillKey': '3' }, 'TX': { 'voterRegistrations': 12, 'fillKey': '12' }, 'LA': { 'voterRegistrations': 1, 'fillKey': '1' }, 'AK': { 'voterRegistrations': 1, 'fillKey': '1' }, 'NC': { 'voterRegistrations': 544, 'fillKey': '544' }, 'ND': { 'voterRegistrations': 0, 'fillKey': '0' }, 'NE': { 'voterRegistrations': 0, 'fillKey': '0' }, 'TN': { 'voterRegistrations': 4, 'fillKey': '4' }, 'NY': { 'voterRegistrations': 15, 'fillKey': '15' }, 'PA': { 'voterRegistrations': 16, 'fillKey': '16' }, 'RI': { 'voterRegistrations': 0, 'fillKey': '0' }, 'NV': { 'voterRegistrations': 1, 'fillKey': '1' }, 'VA': { 'voterRegistrations': 21, 'fillKey': '21' }, 'CO': { 'voterRegistrations': 6, 'fillKey': '6' }, 'CA': { 'voterRegistrations': 17, 'fillKey': '17' }, 'AL': { 'voterRegistrations': 3, 'fillKey': '3' }, 'AR': { 'voterRegistrations': 1, 'fillKey': '1' }, 'VT': { 'voterRegistrations': 0, 'fillKey': '0' }, 'IL': { 'voterRegistrations': 9, 'fillKey': '9' }, 'GA': { 'voterRegistrations': 9, 'fillKey': '9' }, 'IN': { 'voterRegistrations': 1, 'fillKey': '1' }, 'IA': { 'voterRegistrations': 0, 'fillKey': '0' }, 'MA': { 'voterRegistrations': 4, 'fillKey': '4' }, 'AZ': { 'voterRegistrations': 9, 'fillKey': '9' }, 'ID': { 'voterRegistrations': 0, 'fillKey': '0' }, 'CT': { 'voterRegistrations': 4, 'fillKey': '4' }, 'ME': { 'voterRegistrations': 0, 'fillKey': '0' }, 'MD': { 'voterRegistrations': 8, 'fillKey': '8' }, 'OK': { 'voterRegistrations': 1, 'fillKey': '1' }, 'OH': { 'voterRegistrations': 17, 'fillKey': '17' }, 'UT': { 'voterRegistrations': 1, 'fillKey': '1' }, 'MO': { 'voterRegistrations': 4, 'fillKey': '4' }, 'MN': { 'voterRegistrations': 3, 'fillKey': '3' }, 'MI': { 'voterRegistrations': 3, 'fillKey': '3' }, 'KS': { 'voterRegistrations': 4, 'fillKey': '4' }, 'MT': { 'voterRegistrations': 1, 'fillKey': '1' }, 'MS': { 'voterRegistrations': 0, 'fillKey': '0' }, 'SC': { 'voterRegistrations': 7, 'fillKey': '7' }, 'KY': { 'voterRegistrations': 2, 'fillKey': '2' }, 'OR': { 'voterRegistrations': 0, 'fillKey': '0' }, 'SD': { 'voterRegistrations': 0, 'fillKey': '0' } };
+var colorKey = { '544': '#d1ddcc', '1.6': '#c7d6c1', '1.7': '#c7d6c1', '1.0': '#d1ddcc', '58': '#d1ddcc', '40': '#dae3d6', '35': '#eef2ec', '30': '#ebf0e9', '21': '#eef2ec', '17': '#e3eae0', '16': '#dae3d6', '15': '#e3eae0', '12': '#759a66', '9': '#759a66', '8': '#acc1a3', '7': '#b5c8ad', '6': '#759a66', '5': '#8cab7f', '4': '#a3bb99', '3': '#306719', '2': '#1a5700', '1': '#c7d6c1', '0': '#FFFFFF' }
 
- //Width and height of map
-var width = 960;
-var height = 500;
+var election = new Datamap({
+    scope: 'usa',
+    element: document.getElementById('us_map'),
+    geographyConfig: {
+        highlightBorderColor: '#5900b2',
+        popupTemplate: function(geography, data) {
+        	console.log(data);
+            return '<div class="hoverinfo"><span class="state">' + geography.properties.name +
+                '</span><br> Number of voter registrations: <span class="voterRegist">' + data.voterRegistrations+'</span>'
+        },
+        highlightBorderWidth: 3
+    },
 
-// D3 Projection
-var projection = d3.geo.albersUsa()
-    .translate([width / 2, height / 2]) // translate to center of screen
-    .scale([1000]); // scale things down so see entire US
-
-// Define path generator
-var path = d3.geo.path() // path generator that will convert GeoJSON to SVG paths
-    .projection(projection); // tell path generator to use albersUsa projection
-
-
-// Define linear scale for output
-var color = d3.scale.linear()
-    .range(["rgb(213,222,217)", "rgb(69,173,168)", "rgb(84,36,55)", "rgb(217,91,67)"]);
-
-var legendText = ["", "Competitive States", "", "Nada"];
-
-//Create SVG element and append map to the SVG
-var svg = d3.select("#us_map")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-// Append Div for tooltip to SVG
-var div = d3.select("#us_map")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-// Load in my states data!
-d3.csv("registration.csv", function(data) {
-	console.log(data);
-    color.domain([0, 1, 2, 3]); // setting the range of the input data
-
-    // Load GeoJSON data and merge with states data
-    d3.json("us-states.json", function(json) {
-
-        // Loop through each state data value in the .csv file
-        for (var i = 0; i < data.length; i++) {
-
-            // Grab State Name
-            var dataState = data[i].state;
-
-            // Grab data value 
-            var dataValue = data[i].visited;
-
-            // Find the corresponding state inside the GeoJSON
-            for (var j = 0; j < json.features.length; j++) {
-                var jsonState = json.features[j].properties.name;
-
-                if (dataState == jsonState) {
-
-                    // Copy the data value into the JSON
-                    json.features[j].properties.visited = dataValue;
-
-                    // Stop looking through the JSON
-                    break;
-                }
-            }
-        }
-
-        // Bind the data to the SVG and create one path per GeoJSON feature
-        svg.selectAll("path")
-            .data(json.features)
-            .enter()
-            .append("path")
-            .attr("d", path)
-            .style("stroke", "#fff")
-            .style("stroke-width", "1")
-            .style("fill", function(d) {
-
-                // Get data value
-                var value = d.properties.visited;
-
-                if (value) {
-                    //If value exists…
-                    return color(value);
-                } else {
-                    //If value is undefined…
-                    return "rgb(213,222,217)";
-                }
-            })
-            .on("mouseover", function(json) {
-                div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                for (var key in json) {
-                    console.log(key);
-                }
-                console.log("data: " + json.state);
-                div.text(json.properties.name)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            // fade out tooltip on mouse out               
-            .on("mouseout", function(d) {
-                div.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            })
-
-    });
-
-    // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-    var legend = d3.select("body").append("svg")
-        .attr("class", "legend")
-        .attr("width", 140)
-        .attr("height", 200)
-
-    legend.append("rect")
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", "rgb(84,36,55)");
-
-    legend.append("text")
-        .attr("x", 24)
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .text("Competitive States");
+    fills: colorKey,
+    data: data
 });
+election.labels();
