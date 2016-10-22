@@ -13,7 +13,8 @@ var trump = {
         "Democratic": 0,
         "Republican": 46,
         "Unaffiliated/Independent": 9,
-        "Libertarian": 1
+        "Libertarian": 1,
+        "Green":2
     },
     "Race": {
         "White": 41,
@@ -51,7 +52,8 @@ var clinton = {
         "Democratic": 488,
         "Republican": 44,
         "Unaffiliated/Independent": 136,
-        "Libertarian": 16
+        "Libertarian": 16,
+        "Green":6
     },
     "Race": {
         "White": 348,
@@ -89,7 +91,8 @@ var undecided = {
         "Democratic": 7,
         "Republican": 26,
         "Unaffiliated/Independent": 21,
-        "Libertarian": 6
+        "Libertarian": 6,
+        "Green":0
     },
     "Race": {
         "White": 39,
@@ -127,7 +130,8 @@ var johnson = {
         "Democratic": 0,
         "Republican": 17,
         "Unaffiliated/Independent": 7,
-        "Libertarian": 9
+        "Libertarian": 9,
+        "Green":0
     },
     "Race": {
         "White": 29,
@@ -165,7 +169,8 @@ var other = {
             "Democratic": 4,
             "Republican": 2,
             "Unaffiliated/Independent": 2,
-            "Libertarian": 0
+            "Libertarian": 0,
+            "Green":0
         },
         "Race": {
             "White": 4,
