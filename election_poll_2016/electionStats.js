@@ -154,28 +154,28 @@ var johnson = {
 var other = {
         "Name": "Other",
         "School": {
-            "Trinity": 6,
+            "Trinity": 8,
             "Pratt": 0
         },
         "Gender": {
-            "Female": 1,
-            "Male": 5
+            "Female": 2,
+            "Male": 6
         },
         "Party": {
-            "Democratic": 2,
+            "Democratic": 4,
             "Republican": 2,
             "Unaffiliated/Independent": 2,
             "Libertarian": 0
         },
         "Race": {
-            "White": 2,
+            "White": 4,
             "Black": 0,
             "Asian": 1,
             "Hispanic": 1,
             "Other": 2
         },
         "Year": {
-            "2020": 0,
+            "2020": 2,
             "2019": 1,
             "2018": 4,
             "2017": 1
@@ -184,7 +184,7 @@ var other = {
             "Sorority": 0,
             "Fraternity": 0,
             "Independent House": 4,
-            "None": 2,
+            "None": 4,
             "Selective Living Group": 0
         }
     }
@@ -249,7 +249,7 @@ function createBarChart(divElement, type) {
     $("#barchart").empty();
     if (type == "main") {
         arrayOfData = [
-            ['Number of students who plan to vote for a specific candidate', 691, 61, 58, 34, 6]
+            ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6]
         ];
     } else {
         arrayOfData = parseBarChartData(type);
@@ -264,7 +264,7 @@ function createBarChart(divElement, type) {
         axis: {
             x: {
                 type: 'category',
-                categories: ['Hillary Clinton', 'Undecided', 'Donald Trump', 'Gary Johnson', 'Other']
+                categories: ['Hillary Clinton', 'Donald Trump','Undecided', 'Gary Johnson', 'Other']
             },
             y: {
                 label: {
