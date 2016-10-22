@@ -196,8 +196,8 @@ console.log(candidates);
 createBarChart("#barchart", "main");
 createPieChart("#piechart_0", [
     ["Hillary Clinton", 691],
-    ["Undecided", 61],
     ["Donald Trump", 58],
+    ["Undecided", 61],
     ["Gary Johnson", 34],
     ["Other", 6]
 ]);
@@ -213,8 +213,8 @@ function graph(type) {
         $(".name").hide();
         createPieChart("#piechart_0", [
             ["Hillary Clinton", 691],
-            ["Undecided", 61],
             ["Donald Trump", 58],
+            ["Undecided", 61],
             ["Gary Johnson", 34],
             ["Other", 6]
         ]);
@@ -305,7 +305,7 @@ function createPieChart(divElement, arrayOfData) {
             type: 'pie'
         },
         color: {
-            pattern: ['#000096', '#333333', '#960000', '#FFC300', '#AAAAAA']
+            pattern: ['#000096', '#960000','#333333', '#FFC300', '#AAAAAA']
         }
     });
 
