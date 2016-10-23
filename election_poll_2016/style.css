@@ -4,12 +4,18 @@ body {
     font: 11px sans-serif;
 }
 
-#wordClouds{
-
+.clouds{
+    padding-top: 500px;
 }
 
-#hillaryWordCloud{
-    margin-top: 250px;
+
+.buttons{
+    text-align: center;
+}
+
+.btn-default{
+    background-color: #001A57 !important; 
+    color: white !important;
 }
 /*-----------Map-----------*/
 
@@ -37,8 +43,13 @@ body {
     font-weight: bold;
 }
 
+
 #us_map {
    height: 600px;
+
+}
+
+#us_map svg{
 
 }
 
