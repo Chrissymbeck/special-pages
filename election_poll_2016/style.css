@@ -4,10 +4,16 @@ body {
     font: 11px sans-serif;
 }
 
-.clouds{
-    padding-top: 500px;
+#clouds{
+    text-align: center;
+    display: relative;
+    margin-top: 500px;
+    /*padding-top: 250px;*/
 }
 
+.title{
+    margin-bottom: -20px;
+}
 
 .buttons{
     text-align: center;

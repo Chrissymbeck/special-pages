@@ -31,8 +31,8 @@ function drawWordCloud(text_string, divElement, fill) {
     }
 
     var svg_location = divElement;
-    var width = 500//$(document).width();
-    var height = 500//$(document).height();
+    var width = $(document).width();
+    var height = 700;
 
     var word_entries = d3.entries(word_count);
 

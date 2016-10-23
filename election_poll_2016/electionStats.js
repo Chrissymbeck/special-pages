@@ -235,6 +235,8 @@ var other = {
     //main bar chart
 
 var candidates = [clinton, trump, undecided, johnson, other, novote];
+
+var manypies = false; 
 console.log(candidates);
 
 createBarChart("#barchart", "main");
@@ -360,6 +362,12 @@ function createPieChart(divElement, arrayOfData) {
 function createPieCharts(type) {
     var dataObject = clinton[type];
     var i = 0;
+
+    if (Object.keys(dataObject).length>3){
+        manypies=true;
+    }else{
+        manypies=false;
+    }
     for (var key in dataObject) {
         var arrayOfData = parsePieChartData(type, key);
         $("#pielabel_" + i).html(key);
@@ -368,3 +376,18 @@ function createPieCharts(type) {
         i++;
     }
 }
+
+
+//hacky method to make sure the gap stays
+(function() {
+    setInterval(function() {
+        if (manypies){
+            $("#clouds").css("margin-top", "700px");
+        }
+    }, 500);
+})();
+
+
+
+
+
