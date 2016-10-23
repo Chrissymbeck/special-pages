@@ -16,6 +16,7 @@ body {
 .btn-default{
     background-color: #001A57 !important; 
     color: white !important;
+    outline-width: 0;
 }
 /*-----------Map-----------*/
 
