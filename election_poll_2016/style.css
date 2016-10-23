@@ -6,7 +6,13 @@ body {
     font: 11px sans-serif;
 }
 
+#wordClouds{
 
+}
+
+#hillaryWordCloud{
+    margin-top: 250px;
+}
 /*-----------Map-----------*/
 
 .datamaps-hoverover {
@@ -15,6 +21,7 @@ body {
 }
 
 .hoverinfo {
+    margin-top: 200px;
     visibility: visible !important;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
