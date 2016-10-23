@@ -38,18 +38,10 @@ body {
 }
 
 #us_map {
-    margin-top: 30px;
-    height: 500px;
-    margin-bottom: 50px;
+   height: 600px;
 
 }
 
-svg.datamap {
-    position: relative;
-    top: 20px;
-    margin-top: 10px;
-    height: 610px !important;
-}
 
 .voterRegist {
     font-weight: bold;
