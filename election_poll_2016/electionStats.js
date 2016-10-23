@@ -138,7 +138,7 @@ var johnson = {
         "Black": 1,
         "Asian": 0,
         "Hispanic": 0,
-        "Other": 0
+        "Other": 4
     },
     "Year": {
         "2020": 12,
@@ -234,7 +234,7 @@ var other = {
     }
     //main bar chart
 
-var candidates = [clinton, trump, johnson, undecided, other, novote];
+var candidates = [clinton, trump, undecided, johnson, other, novote];
 console.log(candidates);
 
 createBarChart("#barchart", "main");
