@@ -1,6 +1,4 @@
-path:hover {
-    fill-opacity: .7;
-}
+
 
 body {
     font: 11px sans-serif;
@@ -21,7 +19,7 @@ body {
 }
 
 .hoverinfo {
-    margin-top: 200px;
+    margin-top: 250px;
     visibility: visible !important;
     font-family: 'Open Sans', sans-serif;
     text-align: center;

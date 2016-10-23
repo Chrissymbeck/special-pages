@@ -2,7 +2,7 @@ var data = { 'WA': { 'voterRegistrations': 5, 'fillKey': '5' }, 'DE': { 'voterRe
 for (var key in data){
     console.log(key)
 }
-var colorKey = {'12': '#ffffff', '15': '#e7fcf4', '21': '#b2f6db', '17': '#99f3d0', '16': '#7ff0c4', '1': '#4ceaad', '0': '#32e7a1', '3': '#19e495', '2': '#00e18a', '5': '#00fa9a', '4': '#00e18a', '7': '#66edb8', '6': '#00af6b', '9': '#00965c', '8': '#007d4d', '544': '#00c87b', '58': '#00643d'}
+var colorKey = {'0': '#f1ddf6', '1': '#eaccf1', '2': '#e3bbed', '3': '#dcaae9', '4': '#d599e4', '5': '#ce88e0', '6': '#c776db', '7': '#c066d7', '8': '#ba55d3', '9': '#a74cbd', '12': '#9444a8', '15': '#823b93', '16': '#6f337e', '17': '#5d2a69', '21': '#4a2254', '544': '#25112a', '58': '#37193f'}
 
 var election = new Datamap({
     scope: 'usa',

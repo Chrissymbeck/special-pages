@@ -94,37 +94,34 @@ data={ 'WA': { 'voterRegistrations': 5, 'fillKey': '5' }, 'DE': { 'voterRegistra
 colorKey = []
 
 colors={}
-colorList=[
-'#ffffff',
-'#e7fcf4',
-'#b2f6db',
-'#99f3d0',
-'#7ff0c4',
-'#66edb8',
-'#4ceaad',
-'#32e7a1',
-'#19e495',
-'#00e18a',
-'#00fa9a',
-'#00e18a',
-'#00c87b',
-'#00af6b',
-'#00965c',
-'#007d4d',
-'#00643d',
-'#004b2e']
-i=2
+colorList=['#f1ddf6','#eaccf1','#e3bbed','#dcaae9','#d599e4','#ce88e0','#c776db','#c066d7','#ba55d3',
+'#a74cbd',
+'#9444a8',
+'#823b93',
+'#6f337e',
+'#5d2a69',
+'#4a2254',
+'#37193f',
+'#25112a',
+'#120815',
+'#000000']
+
 
 print len(colorList)
 #newColorList = [val for val in colorList for _ in (0,1)]
 #print newColorList
-sortedKeys=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '12', '15', '16', '17', '17', '2', '21', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '5', '544', '58', '6', '7', '8', '8', '9', '9', '9']
+sortedKeys=['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '5', '6', '7', '8', '8', '9', '9', '9', '12', '15', '16', '17', '17', '21', '58', '544']
+
 newSortedKeys=list(set(sortedKeys))
-print newSortedKeys
-print len(newSortedKeys)
+
+arrnew = [int(val) for val in newSortedKeys]
+arrnew.sort()
+#newSortedKeys_n=[str(val) for val in arrnew]
+#print newSortedKeys_n
 
 i=0
-for key in newSortedKeys:
+for key in arrnew:
+    print colorList[i]
     colors[key]=colorList[i]
     i=i+1
 
