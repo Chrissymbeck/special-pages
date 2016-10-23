@@ -19,7 +19,7 @@ body {
 }
 
 .hoverinfo {
-    margin-top: 250px;
+    margin-top: 500px;
     visibility: visible !important;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
@@ -38,7 +38,7 @@ body {
 }
 
 #us_map {
-    margin-top: 20px;
+    margin-top: 30px;
     height: 500px;
     margin-bottom: 50px;
 
