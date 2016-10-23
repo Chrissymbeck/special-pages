@@ -155,6 +155,45 @@ var johnson = {
     }
 }
 
+var novote={
+        "Name": "Do not intend to vote",
+        "School": {
+            "Trinity": 50,
+            "Pratt": 11
+        },
+        "Gender": {
+            "Female": 33,
+            "Male": 28
+        },
+        "Party": {
+            "Democratic": 20,
+            "Republican": 6,
+            "Unaffiliated/Independent": 26,
+            "Libertarian": 4,
+            "Green":0
+        },
+        "Race": {
+            "White": 19,
+            "Black": 0,
+            "Asian": 27,
+            "Hispanic": 6,
+            "Other": 3
+        },
+        "Year": {
+            "2020": 18,
+            "2019": 15,
+            "2018": 13,
+            "2017": 15
+        },
+        "Group": {
+            "Sorority": 3,
+            "Fraternity": 8,
+            "Independent House": 10,
+            "None": 29,
+            "Selective Living Group": 11
+        }
+    }
+
 var other = {
         "Name": "Other",
         "School": {
@@ -195,7 +234,7 @@ var other = {
     }
     //main bar chart
 
-var candidates = [clinton, trump, johnson, undecided, other];
+var candidates = [clinton, trump, johnson, undecided, other, novote];
 console.log(candidates);
 
 createBarChart("#barchart", "main");
@@ -204,7 +243,8 @@ createPieChart("#piechart_0", [
     ["Donald Trump", 58],
     ["Undecided", 61],
     ["Gary Johnson", 34],
-    ["Other", 6]
+    ["Other", 6],
+    ["Do not intend to vote",61]
 ]);
 
 function graph(type) {
@@ -221,7 +261,8 @@ function graph(type) {
             ["Donald Trump", 58],
             ["Undecided", 61],
             ["Gary Johnson", 34],
-            ["Other", 6]
+            ["Other", 6],
+            ["Do not intend to vote",61]
         ]);
     } else {
         createPieCharts(type);
@@ -254,7 +295,7 @@ function createBarChart(divElement, type) {
     $("#barchart").empty();
     if (type == "main") {
         arrayOfData = [
-            ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6]
+            ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61]
         ];
     } else {
         arrayOfData = parseBarChartData(type);
@@ -269,7 +310,7 @@ function createBarChart(divElement, type) {
         axis: {
             x: {
                 type: 'category',
-                categories: ['Hillary Clinton', 'Donald Trump','Undecided', 'Gary Johnson', 'Other']
+                categories: ['Hillary Clinton', 'Donald Trump','Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"]
             },
             y: {
                 label: {
@@ -310,7 +351,7 @@ function createPieChart(divElement, arrayOfData) {
             type: 'pie'
         },
         color: {
-            pattern: ['#000096', '#960000','#333333', '#FFC300', '#AAAAAA']
+            pattern: ['#000096', '#960000','#333333', '#FFC300', '#AAAAAA','#14413c']
         }
     });
 
