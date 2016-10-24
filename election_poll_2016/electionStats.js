@@ -105,7 +105,7 @@ var clinton = {
     }
 }
 
-var undecided = {
+var undecided_prez = {
     "Name": "Undecided",
     "School": {
         "Trinity": 42,
@@ -192,7 +192,7 @@ var johnson = {
     }
 }
 
-var novote = {
+var novote_prez = {
     "Name": "Do not intend to vote",
     "School": {
         "Trinity": 50,
@@ -235,7 +235,7 @@ var novote = {
     }
 }
 
-var other = {
+var other_prez = {
         "Name": "Other",
         "School": {
             "Trinity": 8,
@@ -288,7 +288,7 @@ var mainData = [
     ["Do not intend to vote", 61]
 ]
 
-var candidates = [clinton, trump, undecided, johnson, other, novote];
+var candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_prez];
 
 var xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
 
@@ -430,7 +430,7 @@ function emptyEverything() {
 }
 
 function createNational() {
-    candidates = [clinton, trump, undecided, johnson, other, novote];
+    candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_prez];
     xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
     numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
     $(".title").show();
@@ -444,7 +444,7 @@ function createNational() {
 
 
 function createSenator() {
-    candidates = [burr, ross, other, undecided, novote];
+    candidates = [burr, ross, other_sen, undecided_sen, novote_sen];
     xcategories = ["Richard Burr", "Deborah Ross", "Other", "Undecided", "Do not intend to vote"]
     numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 43, 207, 3, 188, 96];
     mainData = [
@@ -452,6 +452,23 @@ function createSenator() {
         ["Deborah Ross", 207],
         ["Other", 3],
         ["Undecided", 188],
+        ["Do not intend to vote", 96]
+    ];
+    emptyEverything();
+    $(".title").hide();
+    createBarChart("#barchart", "main", xcategories);
+    createPieChart("#piechart_0", mainData);
+}
+
+function createGovernor() {
+    candidates = [cooper, mccrory, other_gov, undecided_gov, novote_gov];
+    xcategories = [cooper["Name"], mccrory["Name"], "Other", "Undecided", "Do not intend to vote"]
+    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 247, 32, 4, 159, 96];
+    mainData = [
+        [cooper["Name"], 247],
+        [mccrory["Name"], 32],
+        ["Other", 4],
+        ["Undecided", 159],
         ["Do not intend to vote", 96]
     ];
     emptyEverything();
