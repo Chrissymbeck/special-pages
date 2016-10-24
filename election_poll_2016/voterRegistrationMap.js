@@ -25,3 +25,13 @@ function createMap() {
 
 createMap();
 //election.resize();
+
+d3.select("svg.datamap")
+   //.append("div")
+   .classed("svg-container", true) //container class to make it responsive
+   //.append("svg")
+   //responsive SVG needs these 2 attributes and no width and height attr
+   .attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "50 0 800 700")
+   //class to make it responsive
+   .classed("svg-content-responsive", true); 
