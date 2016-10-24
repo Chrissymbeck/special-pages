@@ -2,7 +2,7 @@
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     console.log("Clicked dropdown!");
-    $("#dropDownBar").attr('aria-expanded',true);
+    $("#dropDownBar").attr('aria-expanded','true');
 }
 
 // Close the dropdown menu if the user clicks outside of it
