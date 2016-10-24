@@ -458,12 +458,12 @@ function createNational() {
 
 function createSenator() {
     console.log("create senator");
-    candidates = [burr, ross, other_sen, undecided_sen, novote_sen];
-    xcategories = ["Richard Burr", "Deborah Ross", "Other", "Undecided", "Do not intend to vote"]
-    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 43, 207, 3, 188, 96];
+    candidates = [ross, burr, other_sen, undecided_sen, novote_sen];
+    xcategories = ["Deborah Ross", "Richard Burr", "Other", "Undecided", "Do not intend to vote"]
+    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 207, 43, 3, 188, 96];
     mainData = [
-        ["Richard Burr", 43],
         ["Deborah Ross", 207],
+        ["Richard Burr", 43],
         ["Other", 3],
         ["Undecided", 188],
         ["Do not intend to vote", 96]
@@ -495,7 +495,7 @@ function createGovernor() {
 (function() {
     setInterval(function() {
         if (manypies) {
-            $("#clouds").css("margin-top", "700px");
+            $("#clouds").css("margin-top", "750px");
         }
     }, 500);
 })();
