@@ -1,7 +1,8 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    console.log("Clicked dropdown!");
+    $("#dropDownBar").attr('aria-expanded',true);
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -444,6 +445,7 @@ function createNational() {
 
 
 function createSenator() {
+    console.log("create senator");
     candidates = [burr, ross, other_sen, undecided_sen, novote_sen];
     xcategories = ["Richard Burr", "Deborah Ross", "Other", "Undecided", "Do not intend to vote"]
     numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 43, 207, 3, 188, 96];
