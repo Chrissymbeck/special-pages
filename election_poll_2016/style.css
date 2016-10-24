@@ -6,7 +6,7 @@ body {
 #clouds{
     text-align: center;
     display: relative;
-    margin-top: 500px;
+    margin-top: 300px;
     /*padding-top: 250px;*/
 }
 
@@ -22,6 +22,10 @@ body {
     background-color: #001A57 !important; 
     color: white !important;
     outline-width: 0;
+}
+
+.pieTitle{
+    text-align: center;
 }
 /*-----------Map-----------*/
 

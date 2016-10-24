@@ -292,7 +292,7 @@ var candidates = [clinton, trump, undecided, johnson, other, novote];
 
 var xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
 
-var numOnlyTotals=['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
+var numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
 
 var manypies = false;
 console.log(candidates);
@@ -414,9 +414,8 @@ function createPieCharts(type) {
     }
     for (var key in dataObject) {
         var arrayOfData = parsePieChartData(type, key);
-        $("#pielabel_" + i).html(key);
+        $("#pielabel_" + i).html("<h3 class='pieTitle'>"+key+"</h3>");
         createPieChart("#piechart_" + i, arrayOfData);
-        console.log("id: #piechart_" + i)
         i++;
     }
 }
@@ -432,6 +431,8 @@ function emptyEverything() {
 
 function createNational() {
     candidates = [clinton, trump, undecided, johnson, other, novote];
+    xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
+    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
     $(".title").show();
     emptyEverything();
     createBarChart("#barchart", "main");
@@ -442,10 +443,10 @@ function createNational() {
 }
 
 
-function createState() {
+function createSenator() {
     candidates = [burr, ross, other, undecided, novote];
-    xcategories=["Richard Burr", "Deborah Ross", "Other", "Undecided", "Do not intend to vote"]
-    numOnlyTotals=['Number of students who plan to vote for a specific candidate',43,207,3,188,96];
+    xcategories = ["Richard Burr", "Deborah Ross", "Other", "Undecided", "Do not intend to vote"]
+    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 43, 207, 3, 188, 96];
     mainData = [
         ["Richard Burr", 43],
         ["Deborah Ross", 207],
