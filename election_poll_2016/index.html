@@ -320,6 +320,14 @@
     <br/>
     <!--MAIN STUFF-->
     <div class="container-fluid" id="main">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Election type
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="createNational()">National</a></li>
+                <li><a href="#" onclick="createState()">State</a></li>
+            </ul>
+        </div>
         <div class="row-fluid buttons">
             <button class="btn btn-default" id="main" onclick='graph("main");'>Overall Breakdown</button>
             <button class="btn btn-default" id="school" onclick='graph("School");'>School</button>
@@ -365,12 +373,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="plugins/c3.min.js"></script>
     <script type="text/javascript" src="plugins/d3.min.js"></script>
-    <script src="electionStats.js"></script>
     <script type="text/javascript" src="plugins/cloud.js"></script>
     <script type="text/javascript" src="wordMap.js"></script>
     <script src="plugins/topojson.min.js"></script>
     <script src="plugins/datamaps.usa.min.js"></script>
     <script type="text/javascript" src="voterRegistrationMap.js"></script>
+    <script src="electionStats.js"></script>
     <br/>
     <footer class="container">
         <div class="row inner-footer-container">

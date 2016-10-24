@@ -1,5 +1,4 @@
 
-
 body {
     font: 11px sans-serif;
 }
@@ -72,4 +71,10 @@ body {
 
 .credit {
     text-align: right;
+}
+
+
+/*--------Dropdown------------*/
+.dropdown-menu{
+height: 56px;
 }

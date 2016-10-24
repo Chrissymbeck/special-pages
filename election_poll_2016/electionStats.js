@@ -1,3 +1,23 @@
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
 var group = [];
 var trump = {
     "Name": "Donald Trump",
@@ -14,7 +34,7 @@ var trump = {
         "Republican": 46,
         "Unaffiliated/Independent": 9,
         "Libertarian": 1,
-        "Green":2
+        "Green": 2
     },
     "Race": {
         "White": 41,
@@ -53,7 +73,7 @@ var clinton = {
         "Republican": 44,
         "Unaffiliated/Independent": 136,
         "Libertarian": 16,
-        "Green":6
+        "Green": 6
     },
     "Race": {
         "White": 348,
@@ -92,7 +112,7 @@ var undecided = {
         "Republican": 26,
         "Unaffiliated/Independent": 21,
         "Libertarian": 6,
-        "Green":0
+        "Green": 0
     },
     "Race": {
         "White": 39,
@@ -131,7 +151,7 @@ var johnson = {
         "Republican": 17,
         "Unaffiliated/Independent": 7,
         "Libertarian": 9,
-        "Green":0
+        "Green": 0
     },
     "Race": {
         "White": 29,
@@ -155,44 +175,44 @@ var johnson = {
     }
 }
 
-var novote={
-        "Name": "Do not intend to vote",
-        "School": {
-            "Trinity": 50,
-            "Pratt": 11
-        },
-        "Gender": {
-            "Female": 33,
-            "Male": 28
-        },
-        "Party": {
-            "Democratic": 20,
-            "Republican": 6,
-            "Unaffiliated/Independent": 26,
-            "Libertarian": 4,
-            "Green":0
-        },
-        "Race": {
-            "White": 19,
-            "Black": 0,
-            "Asian": 27,
-            "Hispanic": 6,
-            "Other": 3
-        },
-        "Year": {
-            "2020": 18,
-            "2019": 15,
-            "2018": 13,
-            "2017": 15
-        },
-        "Group": {
-            "Sorority": 3,
-            "Fraternity": 8,
-            "Independent House": 10,
-            "None": 29,
-            "Selective Living Group": 11
-        }
+var novote = {
+    "Name": "Do not intend to vote",
+    "School": {
+        "Trinity": 50,
+        "Pratt": 11
+    },
+    "Gender": {
+        "Female": 33,
+        "Male": 28
+    },
+    "Party": {
+        "Democratic": 20,
+        "Republican": 6,
+        "Unaffiliated/Independent": 26,
+        "Libertarian": 4,
+        "Green": 0
+    },
+    "Race": {
+        "White": 19,
+        "Black": 0,
+        "Asian": 27,
+        "Hispanic": 6,
+        "Other": 3
+    },
+    "Year": {
+        "2020": 18,
+        "2019": 15,
+        "2018": 13,
+        "2017": 15
+    },
+    "Group": {
+        "Sorority": 3,
+        "Fraternity": 8,
+        "Independent House": 10,
+        "None": 29,
+        "Selective Living Group": 11
     }
+}
 
 var other = {
         "Name": "Other",
@@ -209,7 +229,7 @@ var other = {
             "Republican": 2,
             "Unaffiliated/Independent": 2,
             "Libertarian": 0,
-            "Green":0
+            "Green": 0
         },
         "Race": {
             "White": 4,
@@ -236,7 +256,7 @@ var other = {
 
 var candidates = [clinton, trump, undecided, johnson, other, novote];
 
-var manypies = false; 
+var manypies = false;
 console.log(candidates);
 
 createBarChart("#barchart", "main");
@@ -246,7 +266,7 @@ createPieChart("#piechart_0", [
     ["Undecided", 61],
     ["Gary Johnson", 34],
     ["Other", 6],
-    ["Do not intend to vote",61]
+    ["Do not intend to vote", 61]
 ]);
 
 function graph(type) {
@@ -264,7 +284,7 @@ function graph(type) {
             ["Undecided", 61],
             ["Gary Johnson", 34],
             ["Other", 6],
-            ["Do not intend to vote",61]
+            ["Do not intend to vote", 61]
         ]);
     } else {
         createPieCharts(type);
@@ -312,7 +332,7 @@ function createBarChart(divElement, type) {
         axis: {
             x: {
                 type: 'category',
-                categories: ['Hillary Clinton', 'Donald Trump','Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"]
+                categories: ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"]
             },
             y: {
                 label: {
@@ -353,7 +373,7 @@ function createPieChart(divElement, arrayOfData) {
             type: 'pie'
         },
         color: {
-            pattern: ['#000096', '#960000','#333333', '#FFC300', '#AAAAAA','#14413c']
+            pattern: ['#000096', '#960000', '#333333', '#FFC300', '#AAAAAA', '#14413c']
         }
     });
 
@@ -363,10 +383,10 @@ function createPieCharts(type) {
     var dataObject = clinton[type];
     var i = 0;
 
-    if (Object.keys(dataObject).length>3){
-        manypies=true;
-    }else{
-        manypies=false;
+    if (Object.keys(dataObject).length > 3) {
+        manypies = true;
+    } else {
+        manypies = false;
     }
     for (var key in dataObject) {
         var arrayOfData = parsePieChartData(type, key);
@@ -377,17 +397,42 @@ function createPieCharts(type) {
     }
 }
 
+function emptyEverything() {
+    $(".pie").empty();
+    $(".name").empty();
+    $('#barchart').empty();
+    $("#hillaryWordCloud").empty();
+    $("#trumpWordCloud").empty();
+    $("#us_map").empty();
+}
+
+function createNational() {
+    emptyEverything();
+    createBarChart("#barchart", "main");
+    createPieChart("#piechart_0", [
+        ["Hillary Clinton", 691],
+        ["Donald Trump", 58],
+        ["Undecided", 61],
+        ["Gary Johnson", 34],
+        ["Other", 6],
+        ["Do not intend to vote", 61]
+    ]);
+    drawWordCloud(hillaryWords, "#hillaryWordCloud", hillaryFill);
+    drawWordCloud(trumpWords, "#trumpWordCloud", trumpFill);
+    createMap();
+}
+
+
+function createState(){
+    emptyEverything();
+    $(".title").hide();
+}
 
 //hacky method to make sure the gap stays
 (function() {
     setInterval(function() {
-        if (manypies){
+        if (manypies) {
             $("#clouds").css("margin-top", "700px");
         }
     }, 500);
 })();
-
-
-
-
-
