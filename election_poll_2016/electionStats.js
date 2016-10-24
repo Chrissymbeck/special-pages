@@ -2,7 +2,7 @@
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     console.log("Clicked dropdown!");
-    $("#dropDownBar").attr('aria-expanded','true');
+    $("#dropDownBar").attr('aria-expanded', 'true');
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -415,7 +415,7 @@ function createPieCharts(type) {
     }
     for (var key in dataObject) {
         var arrayOfData = parsePieChartData(type, key);
-        $("#pielabel_" + i).html("<h3 class='pieTitle'>"+key+"</h3>");
+        $("#pielabel_" + i).html("<h3 class='pieTitle'>" + key + "</h3>");
         createPieChart("#piechart_" + i, arrayOfData);
         i++;
     }
@@ -434,6 +434,14 @@ function createNational() {
     candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_prez];
     xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
     numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
+    mainData = [
+        ["Hillary Clinton", 691],
+        ["Donald Trump", 58],
+        ["Undecided", 61],
+        ["Gary Johnson", 34],
+        ["Other", 6],
+        ["Do not intend to vote", 61]
+    ]
     $(".title").show();
     emptyEverything();
     createBarChart("#barchart", "main");
