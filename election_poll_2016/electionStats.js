@@ -5,6 +5,10 @@ function myFunction() {
     $("#dropDownBar").attr('aria-expanded', 'true');
 }
 
+$(document).ready(function() {
+    $('.dropdown-toggle').dropdown()
+});
+
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
