@@ -28,6 +28,8 @@ var trump = {
     "Gender": {
         "Female": 15,
         "Male": 41,
+        "Other": 1,
+        "Prefer not to disclose": 1
     },
     "Party": {
         "Democratic": 0,
@@ -41,6 +43,8 @@ var trump = {
         "Black": 1,
         "Asian": 7,
         "Hispanic": 4,
+        "American Indian or Alaska Native": 0,
+        "Native Hawaiian or Pacific Islander": 1,
         "Other": 3
     },
     "Year": {
@@ -66,7 +70,9 @@ var clinton = {
     },
     "Gender": {
         "Female": 400,
-        "Male": 286
+        "Male": 286,
+        "Other": 4,
+        "Prefer not to disclose": 1
     },
     "Party": {
         "Democratic": 488,
@@ -80,6 +86,8 @@ var clinton = {
         "Black": 74,
         "Asian": 196,
         "Hispanic": 49,
+        "American Indian or Alaska Native": 5,
+        "Native Hawaiian or Pacific Islander": 3,
         "Other": 14
     },
     "Year": {
@@ -105,7 +113,10 @@ var undecided = {
     },
     "Gender": {
         "Female": 31,
-        "Male": 29
+        "Male": 29,
+        "Other": 1,
+        "Prefer not to disclose": 0
+
     },
     "Party": {
         "Democratic": 7,
@@ -119,6 +130,8 @@ var undecided = {
         "Black": 2,
         "Asian": 15,
         "Hispanic": 2,
+        "American Indian or Alaska Native": 0,
+        "Native Hawaiian or Pacific Islander": 0,
         "Other": 2
     },
     "Year": {
@@ -144,7 +157,9 @@ var johnson = {
     },
     "Gender": {
         "Female": 5,
-        "Male": 28
+        "Male": 28,
+        "Other": 0,
+        "Prefer not to disclose": 1
     },
     "Party": {
         "Democratic": 0,
@@ -158,6 +173,8 @@ var johnson = {
         "Black": 1,
         "Asian": 0,
         "Hispanic": 0,
+        "American Indian or Alaska Native": 0,
+        "Native Hawaiian or Pacific Islander": 0,
         "Other": 4
     },
     "Year": {
@@ -183,7 +200,9 @@ var novote = {
     },
     "Gender": {
         "Female": 33,
-        "Male": 28
+        "Male": 28,
+        "Other": 0,
+        "Prefer not to disclose": 0
     },
     "Party": {
         "Democratic": 20,
@@ -197,6 +216,8 @@ var novote = {
         "Black": 0,
         "Asian": 27,
         "Hispanic": 6,
+        "American Indian or Alaska Native": 0,
+        "Native Hawaiian or Pacific Islander": 0,
         "Other": 3
     },
     "Year": {
@@ -222,7 +243,9 @@ var other = {
         },
         "Gender": {
             "Female": 2,
-            "Male": 6
+            "Male": 6,
+            "Other": 0,
+            "Prefer not to disclose": 0
         },
         "Party": {
             "Democratic": 4,
@@ -236,6 +259,8 @@ var other = {
             "Black": 0,
             "Asian": 1,
             "Hispanic": 1,
+            "American Indian or Alaska Native": 0,
+            "Native Hawaiian or Pacific Islander": 0,
             "Other": 2
         },
         "Year": {
@@ -423,7 +448,7 @@ function createNational() {
 }
 
 
-function createState(){
+function createState() {
     emptyEverything();
     $(".title").hide();
 }
