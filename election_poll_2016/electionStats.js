@@ -279,20 +279,26 @@ var other = {
     }
     //main bar chart
 
-var candidates = [clinton, trump, undecided, johnson, other, novote];
-
-var manypies = false;
-console.log(candidates);
-
-createBarChart("#barchart", "main");
-createPieChart("#piechart_0", [
+var mainData = [
     ["Hillary Clinton", 691],
     ["Donald Trump", 58],
     ["Undecided", 61],
     ["Gary Johnson", 34],
     ["Other", 6],
     ["Do not intend to vote", 61]
-]);
+]
+
+var candidates = [clinton, trump, undecided, johnson, other, novote];
+
+var xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
+
+var numOnlyTotals=['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
+
+var manypies = false;
+console.log(candidates);
+
+createBarChart("#barchart", "main");
+createPieChart("#piechart_0", mainData);
 
 function graph(type) {
 
@@ -303,14 +309,7 @@ function graph(type) {
     if (type == "main") {
         console.log("type is main");
         $(".name").hide();
-        createPieChart("#piechart_0", [
-            ["Hillary Clinton", 691],
-            ["Donald Trump", 58],
-            ["Undecided", 61],
-            ["Gary Johnson", 34],
-            ["Other", 6],
-            ["Do not intend to vote", 61]
-        ]);
+        createPieChart("#piechart_0", mainData);
     } else {
         createPieCharts(type);
     }
@@ -338,11 +337,11 @@ function parseBarChartData(type) {
 }
 
 
-function createBarChart(divElement, type) {
+function createBarChart(divElement, type, categories = xcategories) {
     $("#barchart").empty();
     if (type == "main") {
         arrayOfData = [
-            ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61]
+            numOnlyTotals
         ];
     } else {
         arrayOfData = parseBarChartData(type);
@@ -357,7 +356,7 @@ function createBarChart(divElement, type) {
         axis: {
             x: {
                 type: 'category',
-                categories: ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"]
+                categories: xcategories
             },
             y: {
                 label: {
@@ -432,16 +431,11 @@ function emptyEverything() {
 }
 
 function createNational() {
+    candidates = [clinton, trump, undecided, johnson, other, novote];
+    $(".title").show();
     emptyEverything();
     createBarChart("#barchart", "main");
-    createPieChart("#piechart_0", [
-        ["Hillary Clinton", 691],
-        ["Donald Trump", 58],
-        ["Undecided", 61],
-        ["Gary Johnson", 34],
-        ["Other", 6],
-        ["Do not intend to vote", 61]
-    ]);
+    createPieChart("#piechart_0", mainData);
     drawWordCloud(hillaryWords, "#hillaryWordCloud", hillaryFill);
     drawWordCloud(trumpWords, "#trumpWordCloud", trumpFill);
     createMap();
@@ -449,8 +443,20 @@ function createNational() {
 
 
 function createState() {
+    candidates = [burr, ross, other, undecided, novote];
+    xcategories=["Richard Burr", "Deborah Ross", "Other", "Undecided", "Do not intend to vote"]
+    numOnlyTotals=['Number of students who plan to vote for a specific candidate',43,207,3,188,96];
+    mainData = [
+        ["Richard Burr", 43],
+        ["Deborah Ross", 207],
+        ["Other", 3],
+        ["Undecided", 188],
+        ["Do not intend to vote", 96]
+    ];
     emptyEverything();
     $(".title").hide();
+    createBarChart("#barchart", "main", xcategories);
+    createPieChart("#piechart_0", mainData);
 }
 
 //hacky method to make sure the gap stays
