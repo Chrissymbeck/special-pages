@@ -1,7 +1,7 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
-    console.log("Clicked dropdown!");
+    //console.log("Clicked dropdown!");
     $("#dropDownBar").attr('aria-expanded', 'true');
 }
 
@@ -300,7 +300,7 @@ var xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson
 var numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 8, 61];
 
 var manypies = false;
-console.log(candidates);
+//console.log(candidates);
 
 createBarChart("#barchart", "main");
 createPieChart("#piechart_0", mainData);
@@ -312,7 +312,7 @@ function graph(type) {
     $(".name").empty();
     graph_bar(type);
     if (type == "main") {
-        console.log("type is main");
+        //console.log("type is main");
         $(".name").hide();
         createPieChart("#piechart_0", mainData);
     } else {
@@ -380,9 +380,9 @@ function createBarChart(divElement, type, categories = xcategories) {
                     },
                     value: function(value, ratio,
                         id, index) {
-                        console.log(value + "," + ratio + "," + id + "," + index);
+                        //console.log(value + "," + ratio + "," + id + "," + index);
                         if (!isMain) { //not main
-                            console.log(value+"/"+totals[index]);
+                            //console.log(value+"/"+totals[index]);
                             return ((value / totals[index] * 100).toFixed(2).toString() + "%");
                            }
                             else {
@@ -414,8 +414,8 @@ function createBarChart(divElement, type, categories = xcategories) {
     }
 
     function createPieChart(divElement, arrayOfData) {
-        console.log(arrayOfData);
-        console.log("Created pie chart!");
+        //console.log(arrayOfData);
+        //console.log("Created pie chart!");
         var chart = c3.generate({
             bindto: divElement,
             data: {
@@ -478,7 +478,6 @@ function createBarChart(divElement, type, categories = xcategories) {
 
 
     function createSenator() {
-        console.log("create senator");
         candidates = [ross, burr, other_sen, undecided_sen, novote_sen];
         xcategories = ["Deborah Ross", "Richard Burr", "Other", "Undecided", "Do not intend to vote"]
         numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 207, 43, 3, 188, 96];
