@@ -289,7 +289,7 @@ var mainData = [
     ["Donald Trump", 58],
     ["Undecided", 61],
     ["Gary Johnson", 34],
-    ["Other", 6],
+    ["Other", 8],
     ["Do not intend to vote", 61]
 ]
 
@@ -297,7 +297,7 @@ var candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_pr
 
 var xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
 
-var numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
+var numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 8, 61];
 
 var manypies = false;
 console.log(candidates);
@@ -343,8 +343,11 @@ function parseBarChartData(type) {
 
 
 function createBarChart(divElement, type, categories = xcategories) {
+    var isMain = false;
+    var totals = numOnlyTotals.slice(1);
     $("#barchart").empty();
     if (type == "main") {
+        isMain = true;
         arrayOfData = [
             numOnlyTotals
         ];
@@ -352,150 +355,168 @@ function createBarChart(divElement, type, categories = xcategories) {
         arrayOfData = parseBarChartData(type);
     }
     var chart = c3.generate({
-        bindto: divElement,
-        data: {
-            columns: arrayOfData,
-            type: 'bar',
-            groups: [group]
-        },
-        axis: {
-            x: {
-                type: 'category',
-                categories: xcategories
+            bindto: divElement,
+            data: {
+                columns: arrayOfData,
+                type: 'bar',
+                groups: [group]
             },
-            y: {
-                label: {
-                    text: "Number of students who plan to vote for a candidate",
-                    position: 'outer-middle'
+            axis: {
+                x: {
+                    type: 'category',
+                    categories: xcategories
+                },
+                y: {
+                    label: {
+                        text: "Number of students who plan to vote for a candidate",
+                        position: 'outer-middle'
+                    }
                 }
+            },
+            tooltip: {
+                format: {
+                    name: function(name, ratio, id, index) {
+                        return name;
+                    },
+                    value: function(value, ratio,
+                        id, index) {
+                        console.log(value + "," + ratio + "," + id + "," + index);
+                        if (!isMain) { //not main
+                            console.log(value+"/"+totals[index]);
+                            return ((value / totals[index] * 100).toFixed(2).toString() + "%");
+                           }
+                            else {
+                                return value;
+                            }
+                        }
+                    }
+                },
+                bar: {
+                    width: {
+                        ratio: 0.5 // this makes bar width 50% of length between ticks
+                    }
+                }
+            });
+
+        group = [];
+    }
+
+
+    function parsePieChartData(type, key) {
+        var data = [];
+        //for (var key in candidates[0][type]) {
+        for (var j = 0; j < candidates.length; j++) {
+            data.push([candidates[j].Name, candidates[j][type][key]]);
+        }
+        //}
+
+        return data;
+    }
+
+    function createPieChart(divElement, arrayOfData) {
+        console.log(arrayOfData);
+        console.log("Created pie chart!");
+        var chart = c3.generate({
+            bindto: divElement,
+            data: {
+                columns: arrayOfData,
+                type: 'pie'
+            },
+            color: {
+                pattern: ['#000096', '#960000', '#333333', '#FFC300', '#AAAAAA', '#14413c']
             }
-        },
-        bar: {
-            width: {
-                ratio: 0.5 // this makes bar width 50% of length between ticks
+        });
+
+    }
+
+    function createPieCharts(type) {
+        var dataObject = clinton[type];
+        var i = 0;
+
+        if (Object.keys(dataObject).length > 3) {
+            manypies = true;
+        } else {
+            manypies = false;
+        }
+        for (var key in dataObject) {
+            var arrayOfData = parsePieChartData(type, key);
+            $("#pielabel_" + i).html("<h3 class='pieTitle'>" + key + "</h3>");
+            createPieChart("#piechart_" + i, arrayOfData);
+            i++;
+        }
+    }
+
+    function emptyEverything() {
+        $(".pie").empty();
+        $(".name").empty();
+        $('#barchart').empty();
+        $("#hillaryWordCloud").empty();
+        $("#trumpWordCloud").empty();
+        $("#us_map").empty();
+    }
+
+    function createNational() {
+        candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_prez];
+        xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
+        numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
+        mainData = [
+            ["Hillary Clinton", 691],
+            ["Donald Trump", 58],
+            ["Undecided", 61],
+            ["Gary Johnson", 34],
+            ["Other", 6],
+            ["Do not intend to vote", 61]
+        ]
+        $(".title").show();
+        emptyEverything();
+        createBarChart("#barchart", "main");
+        createPieChart("#piechart_0", mainData);
+        drawWordCloud(hillaryWords, "#hillaryWordCloud", hillaryFill);
+        drawWordCloud(trumpWords, "#trumpWordCloud", trumpFill);
+        createMap();
+    }
+
+
+    function createSenator() {
+        console.log("create senator");
+        candidates = [ross, burr, other_sen, undecided_sen, novote_sen];
+        xcategories = ["Deborah Ross", "Richard Burr", "Other", "Undecided", "Do not intend to vote"]
+        numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 207, 43, 3, 188, 96];
+        mainData = [
+            ["Deborah Ross", 207],
+            ["Richard Burr", 43],
+            ["Other", 3],
+            ["Undecided", 188],
+            ["Do not intend to vote", 96]
+        ];
+        emptyEverything();
+        $(".title").hide();
+        createBarChart("#barchart", "main", xcategories);
+        createPieChart("#piechart_0", mainData);
+    }
+
+    function createGovernor() {
+        candidates = [cooper, mccrory, other_gov, undecided_gov, novote_gov];
+        xcategories = [cooper["Name"], mccrory["Name"], "Other", "Undecided", "Do not intend to vote"]
+        numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 247, 32, 4, 159, 96];
+        mainData = [
+            [cooper["Name"], 247],
+            [mccrory["Name"], 32],
+            ["Other", 4],
+            ["Undecided", 159],
+            ["Do not intend to vote", 96]
+        ];
+        emptyEverything();
+        $(".title").hide();
+        createBarChart("#barchart", "main", xcategories);
+        createPieChart("#piechart_0", mainData);
+    }
+
+    //hacky method to make sure the gap stays
+    (function() {
+        setInterval(function() {
+            if (manypies) {
+                $("#clouds").css("margin-top", "750px");
             }
-        }
-    });
-
-    group = [];
-}
-
-
-function parsePieChartData(type, key) {
-    var data = [];
-    //for (var key in candidates[0][type]) {
-    for (var j = 0; j < candidates.length; j++) {
-        data.push([candidates[j].Name, candidates[j][type][key]]);
-    }
-    //}
-
-    return data;
-}
-
-function createPieChart(divElement, arrayOfData) {
-    console.log(arrayOfData);
-    console.log("Created pie chart!");
-    var chart = c3.generate({
-        bindto: divElement,
-        data: {
-            columns: arrayOfData,
-            type: 'pie'
-        },
-        color: {
-            pattern: ['#000096', '#960000', '#333333', '#FFC300', '#AAAAAA', '#14413c']
-        }
-    });
-
-}
-
-function createPieCharts(type) {
-    var dataObject = clinton[type];
-    var i = 0;
-
-    if (Object.keys(dataObject).length > 3) {
-        manypies = true;
-    } else {
-        manypies = false;
-    }
-    for (var key in dataObject) {
-        var arrayOfData = parsePieChartData(type, key);
-        $("#pielabel_" + i).html("<h3 class='pieTitle'>" + key + "</h3>");
-        createPieChart("#piechart_" + i, arrayOfData);
-        i++;
-    }
-}
-
-function emptyEverything() {
-    $(".pie").empty();
-    $(".name").empty();
-    $('#barchart').empty();
-    $("#hillaryWordCloud").empty();
-    $("#trumpWordCloud").empty();
-    $("#us_map").empty();
-}
-
-function createNational() {
-    candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_prez];
-    xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
-    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
-    mainData = [
-        ["Hillary Clinton", 691],
-        ["Donald Trump", 58],
-        ["Undecided", 61],
-        ["Gary Johnson", 34],
-        ["Other", 6],
-        ["Do not intend to vote", 61]
-    ]
-    $(".title").show();
-    emptyEverything();
-    createBarChart("#barchart", "main");
-    createPieChart("#piechart_0", mainData);
-    drawWordCloud(hillaryWords, "#hillaryWordCloud", hillaryFill);
-    drawWordCloud(trumpWords, "#trumpWordCloud", trumpFill);
-    createMap();
-}
-
-
-function createSenator() {
-    console.log("create senator");
-    candidates = [ross, burr, other_sen, undecided_sen, novote_sen];
-    xcategories = ["Deborah Ross", "Richard Burr", "Other", "Undecided", "Do not intend to vote"]
-    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 207, 43, 3, 188, 96];
-    mainData = [
-        ["Deborah Ross", 207],
-        ["Richard Burr", 43],
-        ["Other", 3],
-        ["Undecided", 188],
-        ["Do not intend to vote", 96]
-    ];
-    emptyEverything();
-    $(".title").hide();
-    createBarChart("#barchart", "main", xcategories);
-    createPieChart("#piechart_0", mainData);
-}
-
-function createGovernor() {
-    candidates = [cooper, mccrory, other_gov, undecided_gov, novote_gov];
-    xcategories = [cooper["Name"], mccrory["Name"], "Other", "Undecided", "Do not intend to vote"]
-    numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 247, 32, 4, 159, 96];
-    mainData = [
-        [cooper["Name"], 247],
-        [mccrory["Name"], 32],
-        ["Other", 4],
-        ["Undecided", 159],
-        ["Do not intend to vote", 96]
-    ];
-    emptyEverything();
-    $(".title").hide();
-    createBarChart("#barchart", "main", xcategories);
-    createPieChart("#piechart_0", mainData);
-}
-
-//hacky method to make sure the gap stays
-(function() {
-    setInterval(function() {
-        if (manypies) {
-            $("#clouds").css("margin-top", "750px");
-        }
-    }, 500);
-})();
+        }, 500);
+    })();
