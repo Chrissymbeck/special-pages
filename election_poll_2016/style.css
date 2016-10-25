@@ -1,19 +1,21 @@
 body {
     font: 11px sans-serif;
 }
-.wordClouds{
-    
+
+.wordClouds {
     margin-left: -100px;
 }
+
 #clouds {
     text-align: left !important;
     /*display: relative;*/
-    margin-top: 350px;
+    margin-top: 0px;
     /*padding-top: 250px;*/
 }
 
 .title {
-    margin-bottom: -10px;
+    text-align: center;
+    margin-bottom: -5%;
 }
 
 .buttons {
@@ -26,13 +28,17 @@ body {
     outline-width: 0;
 }
 
-.wordCloudClass{
+.wordCloudClass {
     text-align: left;
     float: left !important;
 }
 
 .pieTitle {
     text-align: center;
+}
+
+#trumpWordCloud, .title {
+    margin-top: 5%;
 }
 
 
@@ -62,17 +68,18 @@ body {
     font-weight: bold;
 }
 
-#mapRow{
+#mapRow {
     margin-top: 50px;
 }
+
 #us_map {
-    height: 600px;
+    height: 550px;
     margin-top: 50px !important;
 }
 
 #us_map svg {
-    margin-top: 100px !important;
-    height: 90%;
+    margin-top: 0px !important;
+    height: 120%;
 }
 
 .voterRegist {
