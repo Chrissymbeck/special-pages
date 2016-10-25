@@ -1,32 +1,35 @@
-
 body {
     font: 11px sans-serif;
 }
-
-#clouds{
+.wordClouds{
+    text-align: center;
+}
+#clouds {
     text-align: center;
     display: relative;
     margin-top: 350px;
     /*padding-top: 250px;*/
 }
 
-.title{
+.title {
     margin-bottom: -10px;
 }
 
-.buttons{
+.buttons {
     text-align: center;
 }
 
-.btn-default{
-    background-color: #001A57 !important; 
+.btn-default {
+    background-color: #001A57 !important;
     color: white !important;
     outline-width: 0;
 }
 
-.pieTitle{
+.pieTitle {
     text-align: center;
 }
+
+
 /*-----------Map-----------*/
 
 .datamaps-hoverover {
@@ -53,16 +56,11 @@ body {
     font-weight: bold;
 }
 
-
 #us_map {
-   height: 600px;
-
+    height: 600px;
 }
 
-#us_map svg{
-
-}
-
+#us_map svg {}
 
 .voterRegist {
     font-weight: bold;
@@ -78,9 +76,8 @@ body {
 }
 
 
-
-
 /*--------Dropdown------------*/
-.dropdown-menu{
-height: 90px;
+
+.dropdown-menu {
+    height: 90px;
 }
