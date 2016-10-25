@@ -2,11 +2,12 @@ body {
     font: 11px sans-serif;
 }
 .wordClouds{
-    text-align: center;
+    
+    margin-left: -100px;
 }
 #clouds {
-    text-align: center;
-    display: relative;
+    text-align: left !important;
+    /*display: relative;*/
     margin-top: 350px;
     /*padding-top: 250px;*/
 }
@@ -23,6 +24,11 @@ body {
     background-color: #001A57 !important;
     color: white !important;
     outline-width: 0;
+}
+
+.wordCloudClass{
+    text-align: left;
+    float: left !important;
 }
 
 .pieTitle {
