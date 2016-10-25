@@ -450,9 +450,9 @@ function createBarChart(divElement, type, categories = xcategories) {
         $(".pie").empty();
         $(".name").empty();
         $('#barchart').empty();
-        $("#hillaryWordCloud").empty();
-        $("#trumpWordCloud").empty();
-        $("#us_map").empty();
+        //$("#hillaryWordCloud").empty();
+        //$("#trumpWordCloud").empty();
+        //$("#us_map").empty();
     }
 
     function createNational() {
