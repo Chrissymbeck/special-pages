@@ -56,11 +56,18 @@ body {
     font-weight: bold;
 }
 
+#mapRow{
+    margin-top: 50px;
+}
 #us_map {
     height: 600px;
+    margin-top: 50px !important;
 }
 
-#us_map svg {}
+#us_map svg {
+    margin-top: 100px !important;
+    height: 90%;
+}
 
 .voterRegist {
     font-weight: bold;
