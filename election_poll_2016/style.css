@@ -2,11 +2,12 @@ body {
     font: 11px sans-serif;
 }
 .wordClouds{
-    text-align: center;
+    
+    margin-left: -100px;
 }
 #clouds {
-    text-align: center;
-    display: relative;
+    text-align: left !important;
+    /*display: relative;*/
     margin-top: 350px;
     /*padding-top: 250px;*/
 }
@@ -25,6 +26,11 @@ body {
     outline-width: 0;
 }
 
+.wordCloudClass{
+    text-align: left;
+    float: left !important;
+}
+
 .pieTitle {
     text-align: center;
 }
@@ -38,7 +44,7 @@ body {
 }
 
 .hoverinfo {
-    margin-top: 500px;
+    margin-top: 900px;
     visibility: visible !important;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
