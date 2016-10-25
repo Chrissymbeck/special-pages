@@ -448,7 +448,7 @@ function createBarChart(divElement, type, categories = xcategories) {
 
     function emptyEverything() {
         $(".pie").empty();
-        $(".name").empty();
+        //$(".name").empty();
         $('#barchart').empty();
         //$("#hillaryWordCloud").empty();
         //$("#trumpWordCloud").empty();
@@ -490,7 +490,7 @@ function createBarChart(divElement, type, categories = xcategories) {
             ["Do not intend to vote", 96]
         ];
         emptyEverything();
-        $(".title").hide();
+        $(".title").show();
         createBarChart("#barchart", "main", xcategories);
         createPieChart("#piechart_0", mainData);
     }
@@ -507,7 +507,7 @@ function createBarChart(divElement, type, categories = xcategories) {
             ["Do not intend to vote", 96]
         ];
         emptyEverything();
-        $(".title").hide();
+        $(".title").show();
         createBarChart("#barchart", "main", xcategories);
         createPieChart("#piechart_0", mainData);
     }
