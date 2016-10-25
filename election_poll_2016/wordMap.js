@@ -18,6 +18,7 @@ window.addEventListener('resize', function() {
     console.log("Width: " + width);
     d3.select(".wordCloudClass")
         .attr("width", width);
+    window.location.reload();
 }, true);
 
 function drawWordCloud(text_string, divElement, fill) {
