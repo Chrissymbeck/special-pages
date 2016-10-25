@@ -15,12 +15,12 @@
     <meta name="generator" content="Gryphon 20160127001 (Foundry 6.1-20150615001)">
     <!-- START gryphon/main/meta.tpl -->
     <title>Election Poll 2016| The Chronicle</title>
-    <meta name="description" content="Lacrosse 10 years later">
+    <meta name="description" content="2016 Election Poll">
     <meta name="twitter:site" content="@DukeChronicle">
     <meta property="og:site_name" content="The Chronicle">
-    <meta property="og:title" content="Lacrosse 10 years later">
-    <meta property="og:description" content="See our coverage of the 10th anniversary of the lacrosse case">
-    <meta property="og:url" content="http://specials.dukechronicle.com/lacrosse-10yrs/">
+    <meta property="og:title" content="2016 Election Poll">
+    <meta property="og:description" content="See the results of our 2016 Election Poll">
+    <meta property="og:url" content="http://specials.dukechronicle.com/election_poll_2016/">
     <meta property="og:type" content="page">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://s3.amazonaws.com/media.dtc/22027_lacrosse_v3f.jpg">
@@ -49,7 +49,7 @@
     <meta name="msapplication-config" content="http://ds4q8c259towh.cloudfront.net/20160127XylVZSuj7Z/dist/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <!-- /Favicons -->
-    <link rel="alternate shorter" type="text/html" href="http://specials.dukechronicle.com/lacrosse-10yrs/">
+    <link rel="alternate shorter" type="text/html" href="http://specials.dukechronicle.com/election_poll_2016/">
     <link rel="icon" type="image/png" href="">
     <link rel="stylesheet" type="text/css" media="screen, projection, print" href="http://ds4q8c259towh.cloudfront.net/20160127XylVZSuj7Z/dist/css/master.css">
     <link rel="stylesheet" type="text/css" media="print" href="http://ds4q8c259towh.cloudfront.net/20160127XylVZSuj7Z/dist/css/print.css">
@@ -142,6 +142,7 @@
     }
     </style>
     <style type="text/css">
+
     .navbar-container {
         background-color: #021b3f;
         padding: 0px;
@@ -320,55 +321,79 @@
     <br/>
     <!--MAIN STUFF-->
     <div class="container-fluid" id="main">
-        <div class="dropdown col-md-2">
-            <button class="btn btn-primary dropdown-toggle" href="#" onclick="myFunction()" id="dropDownBar" type="button" data-toggle="dropdown">Election type
-                <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="createNational()">President</a></li>
-                <li><a href="#" onclick="createSenator()">Senator</a></li>
-                <li><a href="#" onclick="createGovernor()">Governor</a></li>
-            </ul>
-        </div>
-        <div class="row-fluid buttons">
-            <button class="btn btn-default" id="main" onclick='graph("main");'>Overall Breakdown</button>
-            <button class="btn btn-default" id="school" onclick='graph("School");'>School</button>
-            <button class="btn btn-default" id="group" onclick='graph("Group");'>Student Group</button>
-            <button class="btn btn-default" id="gender" onclick='graph("Gender");'>Gender</button>
-            <button class="btn btn-default" id="party" onclick='graph("Party");'>Party</button>
-            <button class="btn btn-default" id="race" onclick='graph("Race");'>Race</button>
-            <button class="btn btn-default" id="year" onclick='graph("Year");'>Year</button>
-        </div>
-        <div id="barchart"></div>
-        <div class="row-fluid">
-            <div class="col-md-4">
-                <div class="name row-fluid" id="pielabel_0"></div>
-                <div class="pie row-fluid" id="piechart_0"></div>
-                <div class="name row-fluid" id="pielabel_3"></div>
-                <div class="pie row-fluid" id="piechart_3"></div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>2016 Election Poll</h1>
+                    <h3>The Chronicle polled a representative sample of 920 Duke undergraduates and asked them about their views on the 2016 US elections.</h3>
+                    <p>Here are their responses broken down by various groups:</p>
+                    <br />
+                </div>
             </div>
-            <div class="col-md-4">
-                <div class="name row-fluid" id="pielabel_1"></div>
-                <div class="pie row-fluid" id="piechart_1"></div>
-                <div class="name row-fluid" id="pielabel_4"></div>
-                <div class="pie row-fluid" id="piechart_4"></div>
+            <div class="dropdown col-md-2">
+                <button class="btn btn-primary dropdown-toggle" href="#" onclick="myFunction()" id="dropDownBar" type="button" data-toggle="dropdown">
+                    Election type
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="createNational()">President</a></li>
+                    <li><a href="#" onclick="createSenator()">Senator</a></li>
+                    <li><a href="#" onclick="createGovernor()">Governor</a></li>
+                </ul>
             </div>
-            <div class="col-md-4">
-                <div class="name row-fluid" id="pielabel_2"></div>
-                <div class="pie row-fluid" id="piechart_2"></div>
+            <div class="row-fluid buttons">
+                <button class="btn btn-default" id="main" onclick='graph("main");'>Overall Breakdown</button>
+                <button class="btn btn-default" id="school" onclick='graph("School");'>School</button>
+                <button class="btn btn-default" id="group" onclick='graph("Group");'>Student Group</button>
+                <button class="btn btn-default" id="gender" onclick='graph("Gender");'>Gender</button>
+                <button class="btn btn-default" id="party" onclick='graph("Party");'>Party</button>
+                <button class="btn btn-default" id="race" onclick='graph("Race");'>Race</button>
+                <button class="btn btn-default" id="year" onclick='graph("Year");'>Year</button>
             </div>
-        </div>
+            <div id="barchart"></div>
+            <div class="row-fluid">
+                <div class="col-md-4">
+                    <div class="name row-fluid" id="pielabel_0"></div>
+                    <div class="pie row-fluid" id="piechart_0"></div>
+                    <div class="name row-fluid" id="pielabel_3"></div>
+                    <div class="pie row-fluid" id="piechart_3"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="name row-fluid" id="pielabel_1"></div>
+                    <div class="pie row-fluid" id="piechart_1"></div>
+                    <div class="name row-fluid" id="pielabel_4"></div>
+                    <div class="pie row-fluid" id="piechart_4"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="name row-fluid" id="pielabel_2"></div>
+                    <div class="pie row-fluid" id="piechart_2"></div>
+                </div>
+            </div>
 
-        <div class="row-fluid" id="mapRow">
-            <div id="us_map" class="row-fluid"></div>
-        </div>
-        <div id="clouds">
-            <div id="hillaryCloud" class="row-fluid">
-                <h1 class='title'>Hillary Clinton</h1>
-                <div class="wordClouds" id="hillaryWordCloud"></div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>Here is where Duke students are registered to vote:</h3>
+                </div>
             </div>
-            <div id="trumpCloud" class="row-fluid">
-                <h1 class='title'>Donald Trump</h1>
-                <div class="wordClouds" id="trumpWordCloud"></div>
+
+            <div class="row-fluid" id="mapRow">
+                <div id="us_map" class="row-fluid"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>We also asked students what words came to mind when they thought of Hillary Clinton and Donald Trump. Here are their responses:</h3>
+                </div>
+            </div>
+            <div id="clouds">
+                <div id="hillaryCloud" class="row-fluid">
+                    <h1 class='title'>Hillary Clinton</h1>
+                    <div class="wordClouds" id="hillaryWordCloud"></div>
+                </div>
+                <div id="trumpCloud" class="row-fluid">
+                    <h1 class='title'>Donald Trump</h1>
+                    <div class="wordClouds" id="trumpWordCloud"></div>
+                </div>
             </div>
         </div>
     </div>
