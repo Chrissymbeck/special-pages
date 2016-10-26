@@ -297,7 +297,7 @@ var candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_pr
 
 var xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
 
-var numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 8, 61];
+var numOnlyTotals = ['Number of respondents who said they plan to vote for a specific candidate', 691, 58, 61, 34, 8, 61];
 
 var manypies = false;
 //console.log(candidates);
@@ -368,7 +368,7 @@ function createBarChart(divElement, type, categories = xcategories) {
                 },
                 y: {
                     label: {
-                        text: "Number of students who plan to vote for a candidate",
+                        text: "Number of respondents who said they plan to vote for a candidate",
                         position: 'outer-middle'
                     }
                 }
@@ -458,7 +458,7 @@ function createBarChart(divElement, type, categories = xcategories) {
     function createNational() {
         candidates = [clinton, trump, undecided_prez, johnson, other_prez, novote_prez];
         xcategories = ['Hillary Clinton', 'Donald Trump', 'Undecided', 'Gary Johnson', 'Other', "Do not intend to vote"];
-        numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
+        numOnlyTotals = ['Number of respondents who said they plan to vote for a specific candidate', 691, 58, 61, 34, 6, 61];
         mainData = [
             ["Hillary Clinton", 691],
             ["Donald Trump", 58],
@@ -480,7 +480,7 @@ function createBarChart(divElement, type, categories = xcategories) {
     function createSenator() {
         candidates = [ross, burr, other_sen, undecided_sen, novote_sen];
         xcategories = ["Deborah Ross", "Richard Burr", "Other", "Undecided", "Do not intend to vote"]
-        numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 207, 43, 3, 188, 96];
+        numOnlyTotals = ['Number of respondents who said they plan to vote for a specific candidate', 207, 43, 3, 188, 96];
         mainData = [
             ["Deborah Ross", 207],
             ["Richard Burr", 43],
@@ -497,7 +497,7 @@ function createBarChart(divElement, type, categories = xcategories) {
     function createGovernor() {
         candidates = [cooper, mccrory, other_gov, undecided_gov, novote_gov];
         xcategories = [cooper["Name"], mccrory["Name"], "Other", "Undecided", "Do not intend to vote"]
-        numOnlyTotals = ['Number of students who plan to vote for a specific candidate', 247, 32, 4, 159, 96];
+        numOnlyTotals = ['Number of respondents who said they plan to vote for a specific candidate', 247, 32, 4, 159, 96];
         mainData = [
             [cooper["Name"], 247],
             [mccrory["Name"], 32],
