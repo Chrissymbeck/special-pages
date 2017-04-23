@@ -31,6 +31,7 @@ body {
 .wordCloudClass {
     text-align: left;
     float: left !important;
+    width: 100% !important;
 }
 
 .pieTitle {
