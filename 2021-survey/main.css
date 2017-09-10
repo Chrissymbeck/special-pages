@@ -1,3 +1,11 @@
 .main-logo{
 	max-width: 150px;
 }
+
+.navbar{
+	background-color: white;
+}
+
+.main-container{
+	margin-top: 50px;
+}

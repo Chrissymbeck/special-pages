@@ -19,8 +19,20 @@ var testing = [
 
 var scores = {
     "SAT": { "minimum": 1260, "maximum": 1600, "mean": 1492.94, "std-dev": 81.18, "count": 126 },
-    "ACT": { "minimum": 26, "maximum": 36, "std-dev": 2.07, "count": 177, "mean":33.25 }
+    "ACT": { "minimum": 26, "maximum": 36, "std-dev": 2.07, "count": 177, "mean": 33.25 }
 };
+
+var income = [
+    ["Below $40,000", 30],
+    ["$40,000 - $80,000", 37],
+    ["$80,000-$125,000", 39],
+    ["$125,000-$250,000", 60],
+    ["$250,000 - $500,000", 50],
+    ["Above $500,000", 27]
+];
+var incomeData = ["Number of Students", 30, 37, 39, 60, 50, 27];
+
+var colorPattern = ["#001A57"];
 
 function createPieChart(divElement, data, callback = null) {
     var chart = c3.generate({
@@ -43,6 +55,25 @@ function createPieChart(divElement, data, callback = null) {
     });
 }
 
+function createBarChart(divElement, data) {
+    var chart = c3.generate({
+        bindto: divElement,
+        data: {
+            columns: [data],
+            type: 'bar'
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: ["Below $40,000", "$40,000 - $80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000 - $500,000", "Above $500,000"]
+            }
+        },
+        color: {
+            pattern: colorPattern
+        }
+    });
+}
+
 function displayTestingScores(data, type) {
     $("#testType").html(type);
     $("#mean").html(data["mean"]);
@@ -59,3 +90,4 @@ createPieChart("#standardizedTesting", testing, function(data) {
     var test = data["id"];
     displayTestingScores(scores[test], test);
 });
+createBarChart("#income", incomeData);

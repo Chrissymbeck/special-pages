@@ -46,8 +46,9 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="main-container container">
         <div id="demographics" class="row">
+        <h1>Demographics</h1>
             <div class="col-md-4">
                 <div id="school"></div>
             </div>
@@ -56,29 +57,40 @@
             </div>
         </div>
         <div id="highschoolers" class="row">
+        <h1>As High Schoolers</h1>
             <div class="row">
                 <div class="col-md-6">
                     <div id="standardizedTesting"></div>
                 </div>
                 <div class="col-md-6">
-                <h1 id="testType">SAT</h1>
-                    <div id="testingScores">
-                        <h2>Mean</h2>
-                        <div id="mean"></div>
-                        <h2>Maximum</h2>
-                        <div id="maximum"></div>
-                        <h2>Minimum</h2>
-                        <div id="minimum"></div>
-                        <h2>Standard Devation</h2>
-                        <div id="std-dev"></div>
-                        <h2>Count</h2>
-                        <div id="count"></div>
+                    <h1 id="testType">SAT</h1>
+                    <div class="row" id="testingScores">
+                        <div class="col-md-6">
+                            <h2>Mean</h2>
+                            <div id="mean"></div>
+                            <h2>Maximum</h2>
+                            <div id="maximum"></div>
+                            <h2>Minimum</h2>
+                            <div id="minimum"></div>
+                        </div>
+     
+                        <div class="col-md-6">
+                            <h2>Standard Devation</h2>
+                            <div id="std-dev"></div>
+                            <h2>Count</h2>
+                            <div id="count"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="lifestyle" class="row"></div>
-        <div id="plans" class="row"></div>
+        <div id="lifestyle" class="row">
+        <h1>Lifestyle</h1>
+        	<div id="income"></div>
+        </div>
+        <div id="plans" class="row">
+        	<h1>Plans at Duke</h1>
+        </div>
     </div>
     <script type="text/javascript" src="../plugins/d3.min.js"></script>
     <script type="text/javascript" src="../plugins/c3.min.js"></script>
