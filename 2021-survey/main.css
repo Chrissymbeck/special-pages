@@ -1,11 +1,30 @@
-.main-logo{
-	max-width: 150px;
+.main-logo {
+	padding-top: 0px;
+    max-height: 50px;
 }
 
-.navbar{
-	background-color: white;
+.navbar {
+    background-color: white;
+    border-bottom: solid 0.5px #001A57;
+}
+.navbar-brand 
+{
+    padding-top: 0;
 }
 
-.main-container{
-	margin-top: 50px;
+.nav-link{
+	color: #001A57;
+}
+
+.main-container {
+    margin-top: 50px;
+}
+
+.subject {
+    margin-bottom: 70px;
+}
+
+.testScore {
+    font-size: 17px;
+    font-weight: 400;
 }

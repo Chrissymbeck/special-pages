@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://www.dukechronicle.com/"><img class="main-logo" src="http://ds4q8c259towh.cloudfront.net/20170906rkgWQP_pK-/dist/img/dtc-logo-tag.png"></a>
+            <a class="navbar-brand" href="http://www.dukechronicle.com/"><img class="main-logo" src="http://ds4q8c259towh.cloudfront.net/20170906rkgWQP_pK-/dist/img/favicons/favicon.ico"></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav">
                     <li class="nav-item active">
@@ -47,8 +47,8 @@
         </div>
     </nav>
     <div class="main-container container">
-        <div id="demographics" class="row">
-        <h1>Demographics</h1>
+        <div id="demographics" class="row subject">
+            <h1>Demographics</h1>
             <div class="col-md-4">
                 <div id="school"></div>
             </div>
@@ -56,9 +56,10 @@
                 <div id="ethnicity"></div>
             </div>
         </div>
-        <div id="highschoolers" class="row">
-        <h1>As High Schoolers</h1>
+        <div id="highschoolers" class="row subject">
+            <h1>As High Schoolers</h1>
             <div class="row">
+                <h2>Standardized Testing</h2>
                 <div class="col-md-6">
                     <div id="standardizedTesting"></div>
                 </div>
@@ -67,29 +68,37 @@
                     <div class="row" id="testingScores">
                         <div class="col-md-6">
                             <h2>Mean</h2>
-                            <div id="mean"></div>
+                            <div class="testScore" id="mean"></div>
                             <h2>Maximum</h2>
-                            <div id="maximum"></div>
+                            <div class="testScore" id="maximum"></div>
                             <h2>Minimum</h2>
-                            <div id="minimum"></div>
+                            <div class="testScore" id="minimum"></div>
                         </div>
-     
                         <div class="col-md-6">
                             <h2>Standard Devation</h2>
-                            <div id="std-dev"></div>
+                            <div class="testScore" id="std-dev"></div>
                             <h2>Count</h2>
-                            <div id="count"></div>
+                            <div class="testScore" id="count"></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Hired a private admissions counselor</h2>
+                    <div id="hiredAdm"></div>
+                </div>
+                <div class="col-md-6">
+                    <div id="schoolType"></div>
+                </div>
+            </div>
         </div>
-        <div id="lifestyle" class="row">
-        <h1>Lifestyle</h1>
-        	<div id="income"></div>
+        <div id="lifestyle" class="row subject">
+            <h1>Lifestyle</h1>
+            <div id="income"></div>
         </div>
-        <div id="plans" class="row">
-        	<h1>Plans at Duke</h1>
+        <div id="plans" class="row subject">
+            <h1>Plans at Duke</h1>
         </div>
     </div>
     <script type="text/javascript" src="../plugins/d3.min.js"></script>
