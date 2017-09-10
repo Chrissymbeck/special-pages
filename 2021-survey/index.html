@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/c3.min.css">
+</head>
+
+<body>
+    <!--Demographics, As high schoolers, Lifestyle, and Plans at Duke-->
+    <nav class="navbar nav-header navbar-fixed-top">
+        <div class="container-fluid">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.dukechronicle.com/"><img class="main-logo" src="http://ds4q8c259towh.cloudfront.net/20170906rkgWQP_pK-/dist/img/dtc-logo-tag.png"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#demographics">Demographics<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#highschoolers">As High Schoolers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#lifestyle">Lifestyle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#plans">Plans at Duke</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="demographics" class="row">
+            <div class="col-md-4">
+                <div id="school"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="ethnicity"></div>
+            </div>
+        </div>
+        <div id="highschoolers" class="row">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="standardizedTesting"></div>
+                </div>
+                <div class="col-md-6">
+                <h1 id="testType">SAT</h1>
+                    <div id="testingScores">
+                        <h2>Mean</h2>
+                        <div id="mean"></div>
+                        <h2>Maximum</h2>
+                        <div id="maximum"></div>
+                        <h2>Minimum</h2>
+                        <div id="minimum"></div>
+                        <h2>Standard Devation</h2>
+                        <div id="std-dev"></div>
+                        <h2>Count</h2>
+                        <div id="count"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="lifestyle" class="row"></div>
+        <div id="plans" class="row"></div>
+    </div>
+    <script type="text/javascript" src="../plugins/d3.min.js"></script>
+    <script type="text/javascript" src="../plugins/c3.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
