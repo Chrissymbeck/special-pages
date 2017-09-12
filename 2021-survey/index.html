@@ -50,13 +50,22 @@
         <img id="head-image" src="https://today.duke.edu/sites/default/files/styles/story_hero/public/class202115x7.jpg">
     </div>
     <div class="main-container container">
+        <div class="credit">
+            <h6>Interactive by Lucy Zhang | The Chronicle</h6>
+        </div>
         <div id="demographics" class="row subject">
             <h1>Demographics</h1>
-            <div class="col-md-4">
-                <div id="school"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="school"></div>
+                </div>
+                <div class="col-md-6">
+                    <div id="ethnicity"></div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <div id="ethnicity"></div>
+            <div class="row">
+            <h2>Where students are located in the US</h2>
+                <div id="us_map"></div>
             </div>
         </div>
         <div id="highschoolers" class="row subject">
@@ -106,6 +115,8 @@
     </div>
     <script type="text/javascript" src="../plugins/d3.min.js"></script>
     <script type="text/javascript" src="../plugins/c3.min.js"></script>
+    <script type="text/javascript" src="../plugins/topojson.min.js"></script>
+    <script type="text/javascript" src="../plugins/datamaps.usa.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 

@@ -32,9 +32,17 @@ var income = [
 ];
 var incomeData = ["Number of Students", 30, 37, 39, 60, 50, 27];
 
-var hiredAdm = [["Yes", 41], ["No", 207]];
+var hiredAdm = [
+    ["Yes", 41],
+    ["No", 207]
+];
 
-var colorPattern = ["#001A57"];
+var states = {'WA': {'Students': 8, 'fillKey': 8}, 'DE': {'Students': 2, 'fillKey': 2}, 'WI': {'Students': 4, 'fillKey': 4}, 'WV': {'Students': 2, 'fillKey': 2}, 'HI': {'Students': 2, 'fillKey': 2}, 'FL': {'Students': 54, 'fillKey': 54}, 'NJ': {'Students': 12, 'fillKey': 12}, 'TX': {'Students': 30, 'fillKey': 30}, 'LA': {'Students': 2, 'fillKey': 2}, 'NC': {'Students': 90, 'fillKey': 90}, 'TN': {'Students': 4, 'fillKey': 4}, 'NY': {'Students': 34, 'fillKey': 34}, 'PA': {'Students': 14, 'fillKey': 14}, 'NV': {'Students': 2, 'fillKey': 2}, 'VA': {'Students': 34, 'fillKey': 34}, 'CO': {'Students': 12, 'fillKey': 12}, 'VI': {'Students': 2, 'fillKey': 2}, 'CA': {'Students': 30, 'fillKey': 30}, 'AL': {'Students': 8, 'fillKey': 8}, 'AR': {'Students': 4, 'fillKey': 4}, 'IL': {'Students': 20, 'fillKey': 20}, 'GA': {'Students': 24, 'fillKey': 24}, 'IN': {'Students': 4, 'fillKey': 4}, 'IA': {'Students': 2, 'fillKey': 2}, 'AZ': {'Students': 8, 'fillKey': 8}, 'CT': {'Students': 2, 'fillKey': 2}, 'MD': {'Students': 18, 'fillKey': 18}, 'MA': {'Students': 14, 'fillKey': 14}, 'OH': {'Students': 10, 'fillKey': 10}, 'MO': {'Students': 6, 'fillKey': 6}, 'MN': {'Students': 2, 'fillKey': 2}, 'MI': {'Students': 10, 'fillKey': 10}, 'SC': {'Students': 14, 'fillKey': 14}, 'KY': {'Students': 4, 'fillKey': 4}, 'OR': {'Students': 4, 'fillKey': 4}};
+
+var colorKey = { '88':'#00030b', '50':'#000b24', '34':'#00123e', '30':'#001a57', '24':'#002271', '20':'#00298a', '18':'#00298a', '14':'#00298a', '12':'#0031a4','10':'#0031a4','8':'#0031a4', '7':'#0040d7','6':'#0040d7', '5':'#0040d7', '4':'#0048f1','3':'#6996ff', '2':'#6996ff', '1':'#6996ff', '0':'#6997ff' }
+
+var dukeBlue = "#001A57"
+var colorPattern = [dukeBlue];
 
 function createPieChart(divElement, data, callback = null) {
     var chart = c3.generate({
@@ -76,7 +84,7 @@ function createBarChart(divElement, data) {
     });
 }
 
-function gaugeChart(divElement,data) {
+function gaugeChart(divElement, data) {
     var chart = c3.generate({
         bindto: divElement,
         data: {
@@ -118,6 +126,27 @@ function displayTestingScores(data, type) {
     $("#count").html(data["count"]);
 }
 
+function createMap() {
+    var election = new Datamap({
+        scope: 'usa',
+        element: document.getElementById('us_map'),
+        //responsive: true,
+        geographyConfig: {
+            highlightBorderColor: dukeBlue,
+            popupTemplate: function(geography, data) {
+                return '<div class="hoverinfo">' + geography.properties.name +
+                    'Number of students: '+ data.Students + "</div>"
+            },
+            highlightBorderWidth: 3
+        },
+
+        fills: colorKey,
+        data: states
+    });
+    election.labels();
+}
+
+createMap();
 createPieChart("#school", school);
 createPieChart("#ethnicity", ethnicity);
 displayTestingScores(scores["SAT"], "SAT");
