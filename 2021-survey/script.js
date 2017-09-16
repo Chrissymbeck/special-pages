@@ -196,8 +196,8 @@ function createMap() {
         geographyConfig: {
             highlightBorderColor: dukeBlue,
             popupTemplate: function(geography, data) {
-                return '<div class="hoverinfo">' + geography.properties.name +
-                    '<br> Number of students: ' + data.Students + "</div>"
+                return '<div class="hoverinfo"><span class="state">' + geography.properties.name +
+                    '</span><br><span class="numStudents">Number of students: </span>' + data.Students + "</div>"
             },
             highlightBorderWidth: 3
         },
