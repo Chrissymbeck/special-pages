@@ -36,3 +36,9 @@
 #us_map{
     height: 500px;
 }
+
+.datamaps-hoverover{
+    position: relative !important;
+    top: 0px !important;
+    max-width: 200px;
+}
