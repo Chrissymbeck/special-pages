@@ -12,8 +12,19 @@
     padding-top: 0;
 }
 
+.nav-item:hover,
+.nav-link:hover {
+    background-color: #001A57 !important;
+    color: white;
+}
+
+.icon-bar {
+    background-color: #001A57;
+}
+
 .nav-link {
     color: #001A57;
+    font-family: 'Roboto', sans-serif;
 }
 
 .main-container {

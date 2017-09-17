@@ -30,7 +30,20 @@ def get_state_freqs():
 			freqs[state.upper()] = {"Students": 1, "fillKey": 1}
 	return freqs
 
+def major_format():
+	i, j = 1365, 1418
+	majors = []
+	with open("formatted.csv", 'rt') as csvfile:
+	    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+	    for row in itertools.islice(spamreader, i, j+1):
+	    	print row
+	        major = row[0].split(',')[3]
+	        print major
+	        majors.append(major)
+	print majors
+
 
 if __name__ == '__main__':
-	freqs = get_state_freqs()
-	print(freqs)
+	#freqs = get_state_freqs()
+	#print(freqs)
+	major_format()

@@ -88,6 +88,10 @@ var states = {
     'MS': { 'Students': 0, 'fillKey': "0" }
 };
 
+var majorCategories = ['Biology', 'Economics', 'Public', 'Biomedical', 'Neuroscience', 'Computer', 'Global', 'Chemistry', 'Mathematics', 'Political', 'Mechanical', 'Psychology', 'Electrical', 'Environmental', 'Statistical', 'Environmental', 'Environmental', 'International', 'Undecided', 'History', 'English', 'Biophysics', 'Global', 'Art', 'Interdepartmental', 'Dance', 'Civil', 'Linguistics', 'Cultural', 'Physics', 'Asian', 'Music', 'Italian', '"Program', 'Brazilian', 'Classical', 'Religious', 'Romance', 'Russian', 'Slavic', 'Sociology', 'Medieval', '"Spanish', 'Classical', 'German', 'Earth', 'Theater', '"Gender', 'Visual', 'French', 'Visual', 'Evolutionary', 'African', 'Philosophy']
+
+var majors = ["Number of students",36, 31, 23, 21, 16, 15, 13, 10, 9, 8, 8, 7, 7, 6, 6, 5, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 var keys = [88, 50, 34, 30, 24, 20, 18, 14, 12, 10, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 var colorKey = {};
 
@@ -127,7 +131,7 @@ function createPieChart(divElement, data, callback = null) {
     });
 }
 
-function createBarChart(divElement, data) {
+function createBarChart(divElement, data, categories = [], show=true) {
     var chart = c3.generate({
         bindto: divElement,
         data: {
@@ -137,7 +141,8 @@ function createBarChart(divElement, data) {
         axis: {
             x: {
                 type: 'category',
-                categories: ["Below $40,000", "$40,000 - $80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000 - $500,000", "Above $500,000"]
+                categories: categories,
+                show:show
             }
         },
         color: {
@@ -217,4 +222,5 @@ createPieChart("#standardizedTesting", testing, function(data) {
     displayTestingScores(scores[test], test);
 });
 createPieChart("#hiredAdm", hiredAdm);
-createBarChart("#income", incomeData);
+createBarChart("#income", incomeData, ["Below $40,000", "$40,000 - $80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000 - $500,000", "Above $500,000"]);
+createBarChart("#majors", majors, majorCategories, false);
