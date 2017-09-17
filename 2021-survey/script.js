@@ -37,7 +37,7 @@ var income = [
     ["$250,000 - $500,000", 50],
     ["Above $500,000", 27]
 ];
-var incomeData = ["Number of Students", 30, 37, 39, 60, 50, 27];
+var incomeData = ["% of Students", 12.35, 15.23, 16.05, 24.69, 20.58, 11.11];
 
 var hiredAdm = [
     ["Hired private admissions counselor", 41],
@@ -125,7 +125,7 @@ var states = {
     'AK': { 'Students': 0, 'fillKey': "0" }
 };
 
-var majorCategories = ['Biology', 'Economics', 'Public', 'Biomedical', 'Neuroscience', 'Computer', 'Global', 'Chemistry', 'Mathematics', 'Political', 'Mechanical', 'Psychology', 'Electrical', 'Environmental', 'Statistical', 'Environmental', 'Environmental', 'International', 'Undecided', 'History', 'English', 'Biophysics', 'Global', 'Art', 'Interdepartmental', 'Dance', 'Civil', 'Linguistics', 'Cultural', 'Physics', 'Asian', 'Music', 'Italian', '"Program', 'Brazilian', 'Classical', 'Religious', 'Romance', 'Russian', 'Slavic', 'Sociology', 'Medieval', '"Spanish', 'Classical', 'German', 'Earth', 'Theater', '"Gender', 'Visual', 'French', 'Visual', 'Evolutionary', 'African', 'Philosophy']
+var majorCategories = ['Biology', 'Economics', 'Public Policy', 'Biomedical Engineerings', 'Neuroscience', 'Computer Science', 'Global Health', 'Chemistry', 'Mathematics', 'Political Science', 'Mechanical Engineering', 'Psychology', 'Electrical Engineering', 'Environmental Engineering', 'Statistical Science', 'Environmental Sciences', 'Environmental Sciences and Policy', 'International Comparative Studies', 'Undecided', 'History', 'English', 'Biophysics', 'Global Cultural Studies', 'Art History', 'Interdepartmental Major', 'Dance', 'Civil Engineering', 'Linguistics', 'Cultural Anthropology', 'Physics', 'Asian and Middle Eastern Studies', 'Music', 'Italian', 'Program II', 'Brazilian and Global Portuguese Studies', 'Classical Languages', 'Religious Studies', 'Romance Studies', 'Russian', 'Slavic and Eastern Studies', 'Sociology', 'Medieval and Renaissance Studies', 'Spanish, Latin American and Latino/a Studies', 'Classical Civilization', 'German', 'Earth and Ocean Sciences', 'Theater Studies', 'Gender, Sexuality and Feminist Studies', 'Visual Arts', 'French Studies', 'Visual and Media Studies', 'Evolutionary Anthropology', 'African and African American Studies', 'Philosophy'];
 
 var majors = ["Number of students", 36, 31, 23, 21, 16, 15, 13, 10, 9, 8, 8, 7, 7, 6, 6, 5, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
