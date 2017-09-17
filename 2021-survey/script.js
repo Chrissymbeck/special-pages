@@ -54,6 +54,24 @@ var firstChoice = [
     ["Not first choice", 87]
 ];
 
+var religion = [
+    ["Very religious", 11],
+    ["Religious", 40],
+    ["Somewhat religious", 59],
+    ["Not very religious", 66],
+    ["Not at all religious", 65]
+];
+
+var political = [
+    ["Very liberal", 72],
+    ["Somewhat liberal", 90],
+    ["Moderate", 45],
+    ["Somewhat conservative", 25],
+    ["Very conservative", 7]
+];
+
+var politicalColors = ["#232066", "#3732a0", "#206623", "#f48e86","#E91D0E"];
+
 var states = {
     'WA': { 'Students': 8, 'fillKey': "8" },
     'DE': { 'Students': 2, 'fillKey': "2" },
@@ -102,7 +120,9 @@ var states = {
     'ME': { 'Students': 0, 'fillKey': "0" },
     'NH': { 'Students': 0, 'fillKey': "0" },
     'VT': { 'Students': 0, 'fillKey': "0" },
-    'MS': { 'Students': 0, 'fillKey': "0" }
+    'MS': { 'Students': 0, 'fillKey': "0" },
+    'NM': { 'Students': 0, 'fillKey': "0" },
+    'AK': { 'Students': 0, 'fillKey': "0" }
 };
 
 var majorCategories = ['Biology', 'Economics', 'Public', 'Biomedical', 'Neuroscience', 'Computer', 'Global', 'Chemistry', 'Mathematics', 'Political', 'Mechanical', 'Psychology', 'Electrical', 'Environmental', 'Statistical', 'Environmental', 'Environmental', 'International', 'Undecided', 'History', 'English', 'Biophysics', 'Global', 'Art', 'Interdepartmental', 'Dance', 'Civil', 'Linguistics', 'Cultural', 'Physics', 'Asian', 'Music', 'Italian', '"Program', 'Brazilian', 'Classical', 'Religious', 'Romance', 'Russian', 'Slavic', 'Sociology', 'Medieval', '"Spanish', 'Classical', 'German', 'Earth', 'Theater', '"Gender', 'Visual', 'French', 'Visual', 'Evolutionary', 'African', 'Philosophy']
@@ -168,7 +188,7 @@ var dukeBlue = "#001A57";
 var otherBlue = "#00298a"
 var colorPattern = [dukeBlue, otherBlue];
 
-function createPieChart(divElement, data, callback = null) {
+function createPieChart(divElement, data, colorPattern = null) {
     var chart = c3.generate({
         bindto: divElement,
         data: {
@@ -185,6 +205,9 @@ function createPieChart(divElement, data, callback = null) {
                 }
             },
             onmouseout: function(d, i) { console.log("onmouseout", d, i); }
+        },
+        color: {
+            pattern: colorPattern
         }
     });
 }
@@ -275,6 +298,8 @@ createMap();
 createPieChart("#doneStuff", doneStuff);
 createPieChart("#school", school);
 createPieChart("#ethnicity", ethnicity);
+createPieChart("#religion", religion);
+createPieChart("#political", political, politicalColors);
 displayTestingScores(scores["SAT"], "SAT");
 createPieChart("#schoolType", schoolType);
 createPieChart("#standardizedTesting", testing, function(data) {
