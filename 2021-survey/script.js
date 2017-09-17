@@ -129,6 +129,62 @@ var majorCategories = ['Biology', 'Economics', 'Public Policy', 'Biomedical Engi
 
 var majors = ["Number of students", 36, 31, 23, 21, 16, 15, 13, 10, 9, 8, 8, 7, 7, 6, 6, 5, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+var majorPercents = ["% of Students", 14.52,
+12.50,
+9.27,
+8.47,
+6.45,
+6.05,
+5.24,
+4.03,
+3.63,
+3.23,
+3.23,
+2.82,
+2.82,
+2.42,
+2.42,
+2.02,
+1.61,
+1.21,
+1.21,
+1.21,
+0.81,
+0.81,
+0.81,
+0.40,
+0.40,
+0.40,
+0.40,
+0.40,
+0.40,
+0.40,
+0.40,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00,
+0.00
+];
+
 var keys = [88, 50, 34, 30, 24, 20, 18, 14, 12, 10, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 var colorKey = {};
 
@@ -155,7 +211,7 @@ var greekSlg = [
 var doneStuff = ["Number of students", 127, 49, 65, 20];
 
 
-var doneStuffCategories = ["Drank alcohol","Used drugs", "Had sex","Obtained a fake ID"];
+var doneStuffCategories = ["Drank alcohol", "Used drugs", "Had sex", "Obtained a fake ID"];
 
 var tentingCategories = ["Definitely yes", "Probably yes", "Might or might not", "Probably not", "Definitely not"];
 var tentingData = [
@@ -331,13 +387,13 @@ createPieChart("#religion", religion);
 createPieChart("#political", political, null, politicalColors);
 displayTestingScores(scores["SAT"], "SAT");
 createPieChart("#schoolType", schoolType);
-createPieChart("#standardizedTesting", testing, callback=function(data) {
+createPieChart("#standardizedTesting", testing, callback = function(data) {
     var test = data["id"];
     displayTestingScores(scores[test], test);
 });
 createPieChart("#hiredAdm", hiredAdm);
 createBarChart("#income", [incomeData], ["Below $40,000", "$40,000 - $80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000 - $500,000", "Above $500,000"]);
-createBarChart("#majors", [majors], majorCategories);
+createBarChart("#majors", [majorPercents], majorCategories);
 createBarChart("#clubs", [clubsData], clubsCategories);
 createPieChart("#earlyDecision", earlyDecision);
 createPieChart("#firstChoice", firstChoice);

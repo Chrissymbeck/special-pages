@@ -37,7 +37,7 @@ def get_data_from_sheet(rowStart, rowEnd, col = 0):
 	with open("formatted.csv", 'rt') as csvfile:
 	    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
 	    for row in itertools.islice(spamreader, i, j+1):
-	    	print row
+	    	#print row
 	        major = row[0].split(',')[col]
 	        #print major
 	        majors.append(major)
@@ -47,4 +47,4 @@ def get_data_from_sheet(rowStart, rowEnd, col = 0):
 if __name__ == '__main__':
 	#freqs = get_state_freqs()
 	#print(freqs)
-	get_data_from_sheet(1344,1361,3)
+	get_data_from_sheet(1365,1419,2)
