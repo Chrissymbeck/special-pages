@@ -152,12 +152,10 @@ var greekSlg = [
     ["SLG", 14, 47, 75, 69, 42]
 ];
 
-var doneStuff = [
-    ["Drank alcohol", 127],
-    ["Used drugs", 49],
-    ["Had sex", 65],
-    ["Obtained a fake ID", 20]
-];
+var doneStuff = ["Number of students", 127, 49, 65, 20];
+
+
+var doneStuffCategories = ["Drank alcohol","Used drugs", "Had sex","Obtained a fake ID"];
 
 var tentingCategories = ["Definitely yes", "Probably yes", "Might or might not", "Probably not", "Definitely not"];
 var tentingData = [
@@ -325,7 +323,8 @@ function createMap() {
 }
 
 createMap();
-createPieChart("#doneStuff", doneStuff);
+//createPieChart("#doneStuff", doneStuff);
+createBarChart("#doneStuff", [doneStuff], doneStuffCategories);
 createPieChart("#school", school);
 createPieChart("#ethnicity", ethnicity);
 createPieChart("#religion", religion);
