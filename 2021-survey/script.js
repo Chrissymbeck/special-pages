@@ -70,7 +70,7 @@ var political = [
     ["Very conservative", 7]
 ];
 
-var politicalColors = ["#232066", "#3732a0", "#206623", "#f48e86","#E91D0E"];
+var politicalColors = ["#232066", "#3732a0", "#206623", "#f48e86", "#E91D0E"];
 
 var states = {
     'WA': { 'Students': 8, 'fillKey': "8" },
@@ -176,6 +176,20 @@ var gamesWatched = [
     ["31+", 7]
 ];
 
+var os = [
+    ["Windows(PC)", 74],
+    ["macOS", 165],
+    ["Other", 1]
+];
+
+var phone = [
+    ["iPhone", 198],
+    ["Andriod", 40],
+    ["Windows", 2],
+    ["Other", 0],
+    ["Don't use a smartphone", 0]
+];
+
 function generateColorKey() {
     for (var i = 0; i < keys.length; i++) {
         colorKey[keys[i].toString()] = hexColors[i];
@@ -188,7 +202,7 @@ var dukeBlue = "#001A57";
 var otherBlue = "#00298a"
 var colorPattern = [dukeBlue, otherBlue];
 
-function createPieChart(divElement, data, colorPattern = null) {
+function createPieChart(divElement, data, callback = null, colorPattern = null) {
     var chart = c3.generate({
         bindto: divElement,
         data: {
@@ -228,6 +242,22 @@ function createBarChart(divElement, data, categories = [], show = true) {
         },
         color: {
             pattern: colorPattern
+        }
+    });
+}
+
+function createDonut(divElement, data, title = null) {
+    var chart = c3.generate({
+        bindto: divElement,
+        data: {
+            columns: data,
+            type: 'donut',
+            onclick: function(d, i) { console.log("onclick", d, i); },
+            onmouseover: function(d, i) { console.log("onmouseover", d, i); },
+            onmouseout: function(d, i) { console.log("onmouseout", d, i); }
+        },
+        donut: {
+            title: title
         }
     });
 }
@@ -299,10 +329,10 @@ createPieChart("#doneStuff", doneStuff);
 createPieChart("#school", school);
 createPieChart("#ethnicity", ethnicity);
 createPieChart("#religion", religion);
-createPieChart("#political", political, politicalColors);
+createPieChart("#political", political, null, politicalColors);
 displayTestingScores(scores["SAT"], "SAT");
 createPieChart("#schoolType", schoolType);
-createPieChart("#standardizedTesting", testing, function(data) {
+createPieChart("#standardizedTesting", testing, callback=function(data) {
     var test = data["id"];
     displayTestingScores(scores[test], test);
 });
@@ -315,3 +345,5 @@ createPieChart("#firstChoice", firstChoice);
 createBarChart("#livingGroup", greekSlg, livingCategories);
 createPieChart("#tenting", tentingData);
 createPieChart("#gamesWatched", gamesWatched);
+createDonut("#os", os, "Choice of OS");
+createDonut("#phone", phone, "Cell phone");

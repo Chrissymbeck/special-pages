@@ -79,3 +79,16 @@
 .hoverinfo hr {
     border: 1px dotted #CCC;
 }
+
+.row {
+    margin-top: 10px !important;
+}
+
+h2,
+h3 {
+    text-align: center
+}
+
+h1 {
+    color: #001A57;
+}
