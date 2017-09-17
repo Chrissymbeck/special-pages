@@ -85,7 +85,8 @@
 }
 
 h2,
-h3 {
+h3,
+.testScore {
     text-align: center
 }
 
