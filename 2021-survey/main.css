@@ -40,6 +40,11 @@
     font-weight: 400;
 }
 
+#majors tspan {
+    display: none !important;
+    visibility: none;
+}
+
 #head-image {
     width: 100%;
 }

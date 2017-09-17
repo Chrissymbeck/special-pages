@@ -22,6 +22,13 @@ var scores = {
     "ACT": { "minimum": 26, "maximum": 36, "std-dev": 2.07, "count": 177, "mean": 33.25 }
 };
 
+var schoolType = [
+    ["Private", 62],
+    ["Public", 180],
+    ["Home", 3],
+    ["Other", 3]
+];
+
 var income = [
     ["Below $40,000", 30],
     ["$40,000 - $80,000", 37],
@@ -33,8 +40,18 @@ var income = [
 var incomeData = ["Number of Students", 30, 37, 39, 60, 50, 27];
 
 var hiredAdm = [
-    ["Yes", 41],
-    ["No", 207]
+    ["Hired private admissions counselor", 41],
+    ["Did not hire", 207]
+];
+
+var earlyDecision = [
+    ["Applied early decision", 124],
+    ["Did not apply early decision", 123]
+];
+
+var firstChoice = [
+    ["First choice college", 160],
+    ["Not first choice", 87]
 ];
 
 var states = {
@@ -90,7 +107,7 @@ var states = {
 
 var majorCategories = ['Biology', 'Economics', 'Public', 'Biomedical', 'Neuroscience', 'Computer', 'Global', 'Chemistry', 'Mathematics', 'Political', 'Mechanical', 'Psychology', 'Electrical', 'Environmental', 'Statistical', 'Environmental', 'Environmental', 'International', 'Undecided', 'History', 'English', 'Biophysics', 'Global', 'Art', 'Interdepartmental', 'Dance', 'Civil', 'Linguistics', 'Cultural', 'Physics', 'Asian', 'Music', 'Italian', '"Program', 'Brazilian', 'Classical', 'Religious', 'Romance', 'Russian', 'Slavic', 'Sociology', 'Medieval', '"Spanish', 'Classical', 'German', 'Earth', 'Theater', '"Gender', 'Visual', 'French', 'Visual', 'Evolutionary', 'African', 'Philosophy']
 
-var majors = ["Number of students",36, 31, 23, 21, 16, 15, 13, 10, 9, 8, 8, 7, 7, 6, 6, 5, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var majors = ["Number of students", 36, 31, 23, 21, 16, 15, 13, 10, 9, 8, 8, 7, 7, 6, 6, 5, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 var keys = [88, 50, 34, 30, 24, 20, 18, 14, 12, 10, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 var colorKey = {};
@@ -98,6 +115,46 @@ var colorKey = {};
 // from darkest to lightest
 var hexColors = ["#00030b", "#000b24", "#00123e", "#001a57", "#002271", "#00298a", "#0031a4", "#00298b", "#0039be", "#0040d7", "#0048f1", "#0c54ff", "#2566ff", "#3f78ff", "#598aff", "#729cff", "#8caeff", "#a6c0ff", "#d9e4ff"];
 
+
+var clubsCategories = ['Community Service', 'Athletics', 'Science', 'Music', 'Student Gov\'t', 'Language', 'Math Clubs', 'Other', 'Cultural', 'Political', 'Model UN', 'Drama/Performing-Arts', 'Debate', 'Journalism', 'Religious', 'Academic Quiz Bowl/Decathlon', 'Visual Arts', 'Mock Trial'];
+
+var clubsData = ['Number of students', '224', '158', '107', '91', '90', '88', '83', '78', '76', '56', '54', '51', '48', '39', '39', '35', '34', '15'];
+
+var livingCategories = ["Not interested at all",
+    "Slightly interested",
+    "Moderately interested",
+    "Very interested",
+    "Extremely interested"
+];
+
+var greekSlg = [
+    ["Greek", 70, 62, 57, 33, 26],
+    ["SLG", 14, 47, 75, 69, 42]
+];
+
+var doneStuff = [
+    ["Drank alcohol", 127],
+    ["Used drugs", 49],
+    ["Had sex", 65],
+    ["Obtained a fake ID", 20]
+];
+
+var tentingCategories = ["Definitely yes", "Probably yes", "Might or might not", "Probably not", "Definitely not"];
+var tentingData = [
+    ["Definitely yes", 38],
+    ["Probably yes", 69],
+    ["Might or might not", 96],
+    ["Probably not", 29],
+    ["Definitely not", 8]
+];
+
+var gamesWatched = [
+    ["0", 83],
+    ["10-Jan", 118],
+    ["20-Oct", 27],
+    ["20-30", 6],
+    ["31+", 7]
+];
 
 function generateColorKey() {
     for (var i = 0; i < keys.length; i++) {
@@ -107,8 +164,9 @@ function generateColorKey() {
     return colorKey;
 }
 
-var dukeBlue = "#001A57"
-var colorPattern = [dukeBlue];
+var dukeBlue = "#001A57";
+var otherBlue = "#00298a"
+var colorPattern = [dukeBlue, otherBlue];
 
 function createPieChart(divElement, data, callback = null) {
     var chart = c3.generate({
@@ -131,18 +189,18 @@ function createPieChart(divElement, data, callback = null) {
     });
 }
 
-function createBarChart(divElement, data, categories = [], show=true) {
+function createBarChart(divElement, data, categories = [], show = true) {
     var chart = c3.generate({
         bindto: divElement,
         data: {
-            columns: [data],
+            columns: data,
             type: 'bar'
         },
         axis: {
             x: {
                 type: 'category',
                 categories: categories,
-                show:show
+                show: show
             }
         },
         color: {
@@ -178,7 +236,7 @@ function gaugeChart(divElement, data) {
             threshold: {
                 //            unit: 'value', // percentage is default
                 //            max: 200, // 100 is default
-                values: [30, 60, 90, 100]
+                //values: [30, 60, 90, 100]
             }
         },
     });
@@ -214,13 +272,21 @@ function createMap() {
 }
 
 createMap();
+createPieChart("#doneStuff", doneStuff);
 createPieChart("#school", school);
 createPieChart("#ethnicity", ethnicity);
 displayTestingScores(scores["SAT"], "SAT");
+createPieChart("#schoolType", schoolType);
 createPieChart("#standardizedTesting", testing, function(data) {
     var test = data["id"];
     displayTestingScores(scores[test], test);
 });
 createPieChart("#hiredAdm", hiredAdm);
-createBarChart("#income", incomeData, ["Below $40,000", "$40,000 - $80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000 - $500,000", "Above $500,000"]);
-createBarChart("#majors", majors, majorCategories, false);
+createBarChart("#income", [incomeData], ["Below $40,000", "$40,000 - $80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000 - $500,000", "Above $500,000"]);
+createBarChart("#majors", [majors], majorCategories);
+createBarChart("#clubs", [clubsData], clubsCategories);
+createPieChart("#earlyDecision", earlyDecision);
+createPieChart("#firstChoice", firstChoice);
+createBarChart("#livingGroup", greekSlg, livingCategories);
+createPieChart("#tenting", tentingData);
+createPieChart("#gamesWatched", gamesWatched);

@@ -2,6 +2,7 @@ import csv
 import itertools
 
 
+
 def get_rid_of_empty_rows():
 	input = open("Report.csv", 'rb')
 	output = open("formatted.csv", 'wb')
@@ -30,15 +31,15 @@ def get_state_freqs():
 			freqs[state.upper()] = {"Students": 1, "fillKey": 1}
 	return freqs
 
-def major_format():
-	i, j = 1365, 1418
+def get_data_from_sheet(rowStart, rowEnd, col = 0):
+	i, j = rowStart, rowEnd
 	majors = []
 	with open("formatted.csv", 'rt') as csvfile:
 	    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
 	    for row in itertools.islice(spamreader, i, j+1):
 	    	print row
-	        major = row[0].split(',')[3]
-	        print major
+	        major = row[0].split(',')[col]
+	        #print major
 	        majors.append(major)
 	print majors
 
@@ -46,4 +47,4 @@ def major_format():
 if __name__ == '__main__':
 	#freqs = get_state_freqs()
 	#print(freqs)
-	major_format()
+	get_data_from_sheet(1344,1361,3)

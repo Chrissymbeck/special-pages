@@ -64,18 +64,24 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-4">
+                    <div id="firstChoice" class="decision"></div>
+                </div>
+                <div class="col-md-4">
+                    <div id="earlyDecision" class="decision"></div>
+                </div>
+                <div class="col-md-4">
+                    <div id="doneStuff"></div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <h2>Where students are located in the US</h2>
                     <div id="us_map"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Potential Majors</h2>
-                    <div id="majors"></div>
-                </div>
-            </div>
         </div>
+        <hr>
         <div id="highschoolers" class="row subject">
             <h1>As High Schoolers</h1>
             <div class="row">
@@ -88,17 +94,17 @@
                         <h1 id="testType">SAT</h1>
                         <div class="row" id="testingScores">
                             <div class="col-md-6">
-                                <h2>Mean</h2>
+                                <h3>Mean</h3>
                                 <div class="testScore" id="mean"></div>
-                                <h2>Maximum</h2>
+                                <h3>Maximum</h3>
                                 <div class="testScore" id="maximum"></div>
-                                <h2>Minimum</h2>
+                                <h3>Minimum</h3>
                                 <div class="testScore" id="minimum"></div>
                             </div>
                             <div class="col-md-6">
-                                <h2>Standard Devation</h2>
+                                <h3>Standard Devation</h3>
                                 <div class="testScore" id="std-dev"></div>
-                                <h2>Count</h2>
+                                <h3>Count</h3>
                                 <div class="testScore" id="count"></div>
                             </div>
                         </div>
@@ -111,10 +117,18 @@
                     <div id="hiredAdm"></div>
                 </div>
                 <div class="col-md-6">
+                    <h2>School type</h2>
                     <div id="schoolType"></div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Clubs</h2>
+                    <div id="clubs"></div>
+                </div>
+            </div>
         </div>
+        <hr>
         <div id="lifestyle" class="row subject">
             <h1>Lifestyle</h1>
             <div class="row">
@@ -139,14 +153,31 @@
                     <h2>Smartphone/Social Media</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Basketball</h2>
-                </div>
-            </div>
         </div>
+        <hr>
         <div id="plans" class="row subject">
             <h1>Plans at Duke</h1>
+            <div class="col-md-12">
+                <div class="row">
+                    <h2>Potential Majors</h2>
+                    <div id="majors"></div>
+                </div>
+                <div class="row">
+                    <h2>Living</h2>
+                    <div id="livingGroup"></div>
+                </div>
+                <div class="row">
+                    <h2>Basketball</h2>
+                    <div class="col-md-6">
+                        <h3>Tenting</h3>
+                        <div id="tenting"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Games watched</h3>
+                        <div id="gamesWatched"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="../plugins/d3.min.js"></script>
